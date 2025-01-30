@@ -1,0 +1,20 @@
+theme = catppuccin-mocha
+
+# background = #101010
+
+# background-opacity = 0.85
+background-blur-radius = 60
+
+macos-titlebar-style = "tabs"
+
+mouse-hide-while-typing = "true"
+
+shell-integration-features = sudo
+
+keybind = global:ctrl+space=toggle_quick_terminal
+
+quick-terminal-autohide = true
+
+font-family = ""
+# font-family = "Hack Nerd Font"
+font-family = "FiraMono Nerd Font"
