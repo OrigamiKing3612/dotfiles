@@ -35,6 +35,8 @@ return {
 					},
 				},
 			})
+			telescope.load_extension("fzy_native")
+			telescope.load_extension("fidget")
 
 			local builtin = require("telescope.builtin")
 
@@ -58,8 +60,7 @@ return {
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep)
 			vim.keymap.set("n", "<leader>fq", builtin.quickfix)
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-
-			telescope.load_extension("fzy_native")
+			vim.keymap.set("n", "<leader>fn", "<cmd>Telescope fidget<CR>")
 		end,
 	},
 	{
