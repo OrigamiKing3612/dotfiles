@@ -44,6 +44,12 @@ npm install -g tree-sitter-cli
 ## tmux
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 
+## vim
+```bash
+git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/pack/plugins/start/vim-tmux-navigator
+git clone https://github.com/github/copilot.vim.git ~/.vim/pack/github/start/copilot.vim
+```
+
 ## zsh
 `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting`
 `git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
