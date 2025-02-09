@@ -46,9 +46,9 @@ npm install -g tree-sitter-cli
 
 ## vim
 ```bash
-git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/pack/plugins/start/vim-tmux-navigator
-git clone https://github.com/github/copilot.vim.git ~/.vim/pack/github/start/copilot.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
+`:PlugInstall`
 
 ## zsh
 `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting`
