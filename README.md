@@ -39,7 +39,11 @@ npm install -g tree-sitter-cli
 ```
 
 ## starship
+### Mac
 `brew install starship`
+
+### Linux
+`curl -sS https://starship.rs/install.sh | sh`
 
 ## tmux
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
@@ -48,7 +52,7 @@ npm install -g tree-sitter-cli
 ```bash
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-`:PlugInstall`
+`vim +PlugInstall +qall` or `:PlugInstall`
 
 ## zsh
 `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting`

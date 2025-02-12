@@ -135,6 +135,7 @@ fi
 alias clean='sudo ~/clean.sh'
 alias pbcopy='xsel --input --clipboard'
 alias pbpaste='xsel --output --clipboard'
+alias vim="vi"
 
 export JAVA_HOME=/usr/lib/jvm/jdk-21-oracle-x64/
 
