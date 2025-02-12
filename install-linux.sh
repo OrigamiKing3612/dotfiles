@@ -2,6 +2,7 @@
 
 sudo apt install curl git tmux wget stow ssh ripgrep -y
 
+cd ~/dotfiles
 stow bash bat clean lazygit nvim starship tmux vim
 
 # Install nvim
