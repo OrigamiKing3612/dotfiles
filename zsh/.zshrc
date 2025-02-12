@@ -2,18 +2,33 @@ export OPENSSL_INCLUDE_DIR=/usr/local/opt/openssl/include
 export OPENSSL_LIB_DIR=/usr/local/opt/openssl/lib
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 export PATH="$HOME/CEdev/bin:$PATH"
+export EDITOR="nvim"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_RUNTIME_DIR="$HOME/.run"
-export XDG_STATE_HOME="$HOME/.state"
-export EDITOR="nvim"
+export XDG_STATE_HOME="$HOME/.local/.state"
+
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
+export COREPACK_HOME="$XDG_DATA_HOME/node/corepack"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 
 # Homebrew
 HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
 
 if [ -f "$HB_CNF_HANDLER" ]; then
     source "$HB_CNF_HANDLER";
+fi
+
+if type bat &>/dev/null; then
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
 
 # Zinit
@@ -50,6 +65,7 @@ zstyle ':completion:*' menu no
 autoload -U compinit && compinit
 zinit cdreplay -q
 
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 alias ls='ls --color=always'
 alias clean='~/clean.sh'
 alias vim='nvim'

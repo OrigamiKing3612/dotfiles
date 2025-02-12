@@ -4,6 +4,25 @@ case $- in
       *) return;;
 esac
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
+export COREPACK_HOME="$XDG_DATA_HOME/node/corepack"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+
+if type bat &>/dev/null; then
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
