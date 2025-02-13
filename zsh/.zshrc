@@ -22,6 +22,10 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 # export XDG_CONFIG_HOME/git/config
 # export XDG_CONFIG_HOME/git/ignore
 # export XDG_CONFIG_HOME/git/attributes
@@ -79,6 +83,5 @@ alias clean='~/clean.sh'
 alias vim='nvim'
 alias :q='exit'
 
-eval "$(tmuxifier init -)"
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"

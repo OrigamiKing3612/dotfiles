@@ -19,7 +19,7 @@ npm install -g tree-sitter-cli
 # Install starship
 curl -sS https://starship.rs/install.sh | sh -y
 
-# Install Tmux
+# Install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install vim
