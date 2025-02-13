@@ -13,6 +13,8 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export COREPACK_HOME="$XDG_DATA_HOME/node/corepack"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"

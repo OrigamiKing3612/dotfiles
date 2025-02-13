@@ -13,12 +13,20 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export COREPACK_HOME="$XDG_DATA_HOME/node/corepack"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+
+# export XDG_CONFIG_HOME/git/config
+# export XDG_CONFIG_HOME/git/ignore
+# export XDG_CONFIG_HOME/git/attributes
+# export XDG_CONFIG_HOME/git/credentials
+# export XDG_CONFIG_HOME/git/gitk
 
 # Homebrew
 HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
