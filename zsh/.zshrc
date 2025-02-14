@@ -80,10 +80,14 @@ autoload -U compinit && compinit
 zinit cdreplay -q
 
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+
 alias ls='ls --color=always'
 alias clean='~/clean.sh'
 alias vim='nvim'
 alias :q='exit'
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"

@@ -11,6 +11,7 @@ return {
 			java = { "ast-grep" },
 			swift = { "swiftformat" },
 			html = { "ast-grep" },
+			bash = { "shfmt" },
 		},
 	},
 	init = function()
