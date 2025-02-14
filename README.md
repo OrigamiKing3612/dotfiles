@@ -13,6 +13,7 @@ Run `stow` on the folders if this folder. (ex: `stow bash ghostty`)
 ## bash
 
 ## bat
+`bat cache --build`
 
 ## clean
 
@@ -51,8 +52,10 @@ npm install -g tree-sitter-cli
 ## vim
 ```bash
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +PlugInstall +qall
 ```
-`vim +PlugInstall +qall` or `:PlugInstall`
+
+## yazi
 
 ## zsh
 `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting`

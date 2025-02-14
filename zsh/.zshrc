@@ -1,6 +1,5 @@
 export OPENSSL_INCLUDE_DIR=/usr/local/opt/openssl/include
 export OPENSSL_LIB_DIR=/usr/local/opt/openssl/lib
-export PATH="$HOME/.tmuxifier/bin:$PATH"
 export PATH="$HOME/CEdev/bin:$PATH"
 export EDITOR="nvim"
 
@@ -21,6 +20,13 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--multi"
 
 # export XDG_CONFIG_HOME/git/config
 # export XDG_CONFIG_HOME/git/ignore
@@ -79,6 +85,5 @@ alias clean='~/clean.sh'
 alias vim='nvim'
 alias :q='exit'
 
-eval "$(tmuxifier init -)"
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
