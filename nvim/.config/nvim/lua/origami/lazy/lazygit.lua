@@ -8,10 +8,8 @@ return {
 		"LazyGitFilter",
 		"LazyGitFilterCurrentFile",
 	},
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
 	keys = {},
+	opts = {},
 	config = function()
 		vim.g.lazygit_floating_window_border_chars = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
 	end,

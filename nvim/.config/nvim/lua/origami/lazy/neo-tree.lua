@@ -2,11 +2,9 @@ return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
 	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
-	config = function()
+	opts = function()
 		vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
 		vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
 		vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
@@ -15,7 +13,7 @@ return {
 		--vim.cmd(":Neotree filesystem reveal left")
 		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>")
 
-		require("neo-tree").setup({
+		return {
 			close_if_last_window = true,
 			popup_border_style = "rounded",
 			enable_git_status = true,
@@ -61,6 +59,6 @@ return {
 					["<bs>"] = "nop",
 				},
 			},
-		})
+		}
 	end,
 }
