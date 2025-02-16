@@ -1,6 +1,5 @@
 export OPENSSL_INCLUDE_DIR=/usr/local/opt/openssl/include
 export OPENSSL_LIB_DIR=/usr/local/opt/openssl/lib
-export PATH="$HOME/.tmuxifier/bin:$PATH"
 export PATH="$HOME/CEdev/bin:$PATH"
 export EDITOR="nvim"
 
@@ -22,15 +21,12 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-# export XDG_CONFIG_HOME/git/config
-# export XDG_CONFIG_HOME/git/ignore
-# export XDG_CONFIG_HOME/git/attributes
-# export XDG_CONFIG_HOME/git/credentials
-# export XDG_CONFIG_HOME/git/gitk
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--multi"
 
 # Homebrew
 HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
@@ -41,6 +37,12 @@ fi
 
 if type bat &>/dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    alias cat="bat"
+fi
+
+# Silicon doesn't seem to support ~ or $HOME
+if type silicon &>/dev/null; then
+ alias silicon="silicon --theme=\"~/dotfiles/bat/.config/bat/themes/Catppuccin Mocha.tmTheme\""
 fi
 
 # Zinit
@@ -78,10 +80,14 @@ autoload -U compinit && compinit
 zinit cdreplay -q
 
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+
 alias ls='ls --color=always'
 alias clean='~/clean.sh'
 alias vim='nvim'
 alias :q='exit'
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"

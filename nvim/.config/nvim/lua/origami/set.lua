@@ -20,7 +20,7 @@ vim.opt.undofile = true
 
 vim.opt.spellfile = os.getenv("HOME") .. "/.nvim/spell/en.utf-8.add"
 vim.opt.spelllang = "en_us"
-vim.opt.spell = true
+vim.opt.spell = false
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true

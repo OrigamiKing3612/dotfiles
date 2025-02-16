@@ -1,8 +1,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	requires = { "nvim-tree/nvim-web-devicons" },
-	config = function()
-		local lualine = require("lualine")
+	opts = function()
 		local lazy_status = require("lazy.status")
 		local trouble = require("trouble")
 		local symbols = trouble.statusline({
@@ -16,7 +15,7 @@ return {
 			hl_group = "lualine_c_normal",
 		})
 
-		lualine.setup({
+		return {
 			options = {
 				icons_enabled = true,
 				theme = require("themery").getCurrentTheme().lualine,
@@ -39,6 +38,6 @@ return {
 					{ "filetype" },
 				},
 			},
-		})
+		}
 	end,
 }

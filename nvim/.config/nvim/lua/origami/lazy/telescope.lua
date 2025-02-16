@@ -6,7 +6,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-fzy-native.nvim",
 		},
-		config = function()
+		opts = function()
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
 			local trouble_telescope = require("trouble.sources.telescope")

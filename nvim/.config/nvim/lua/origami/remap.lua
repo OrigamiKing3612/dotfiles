@@ -1,4 +1,5 @@
 vim.keymap.set("n", "<leader>F", ":Themery<CR>")
+vim.keymap.set("n", "<leader>L", ":Lazy<CR>")
 
 -- move lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -45,10 +46,6 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
 vim.keymap.set("n", "<leader>td", ":tabnew %<CR>")
 
 -- tmux
--- vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
--- vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
--- vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
--- vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 vim.keymap.set("n", "C-h", ":TmuxNavigateLeft<CR>")
 vim.keymap.set("n", "C-j", ":TmuxNavigateDown<CR>")
 vim.keymap.set("n", "C-k", ":TmuxNavigateUp<CR>")

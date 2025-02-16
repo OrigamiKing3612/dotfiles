@@ -1,22 +1,21 @@
 return {
-	{
-		"hrsh7th/cmp-nvim-lsp",
-		lazy = true,
-	},
-	{
-		"github/copilot.vim",
-	},
+	{ "hrsh7th/cmp-nvim-lsp", lazy = true },
+	{ "github/copilot.vim" },
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
+		opts = {
+			config = {
+				set_config = {
+					history = true,
+					updateevents = "TextChanged,TextChangedI",
+				},
+			},
+		},
 		config = function()
-			require("luasnip").config.set_config({
-				history = true,
-				updateevents = "TextChanged,TextChangedI",
-			})
 			require("luasnip.loaders.from_snipmate").load({ paths = "./snippets" })
 		end,
 	},

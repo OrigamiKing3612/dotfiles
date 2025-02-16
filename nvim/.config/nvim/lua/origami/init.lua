@@ -3,9 +3,9 @@ require("origami.lazy_init")
 require("origami.remap")
 
 local augroup = vim.api.nvim_create_augroup
-local OrigamiGroup = augroup("Origami", {})
-
 local autocmd = vim.api.nvim_create_autocmd
+
+local OrigamiGroup = augroup("Origami", {})
 local yank_group = augroup("HighlightYank", {})
 
 function R(name)
@@ -29,7 +29,7 @@ autocmd({ "BufWritePre" }, {
 	command = [[%s/\s\+$//e]],
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
+autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
 		require("conform").format({ bufnr = args.buf })
