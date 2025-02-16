@@ -4,8 +4,7 @@ return {
 	cmd = "Silicon",
 	opts = {
 		font = "FiraMono Nerd Font=34",
-		theme = "Dracula",
-		background = "#94e2d5",
+		theme = os.getenv("HOME") .. "/dotfiles/bat/.config/bat/themes/Catppuccin Mocha.tmTheme",
 		window_title = function()
 			return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ":t")
 		end,
@@ -15,5 +14,6 @@ return {
 		language = function()
 			return vim.bo.filetype
 		end,
+		disable_defaults = true,
 	},
 }

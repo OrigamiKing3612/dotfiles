@@ -31,14 +31,14 @@ export FZF_DEFAULT_OPTS=" \
 
 if type bat &>/dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    alias cat="bat"
 fi
-HISTCONTROL=ignoreboth
-
-shopt -s histappend
 
 HISTSIZE=1000
 HISTFILESIZE=2000
+HISTCONTROL=ignoreboth
 shopt -s checkwinsize
+shopt -s histappend
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -105,6 +105,10 @@ alias pbcopy='xsel --input --clipboard'
 alias pbpaste='xsel --output --clipboard'
 if command -v vi &>/dev/null; then
     alias vim="vi"
+fi
+# Silicon doesn't seem to support ~ or $HOME
+if type silicon &>/dev/null; then
+ alias silicon="silicon --theme=\"~/dotfiles/bat/.config/bat/themes/Catppuccin Mocha.tmTheme\""
 fi
 
 export JAVA_HOME=/usr/lib/jvm/jdk-21-oracle-x64/

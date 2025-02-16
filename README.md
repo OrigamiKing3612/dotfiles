@@ -38,6 +38,9 @@ source ~/.bashrc
 nvm install 22
 npm install -g tree-sitter-cli
 ```
+## silicon
+### Mac
+`brew install silicon`
 
 ## starship
 ### Mac

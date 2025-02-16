@@ -1,6 +1,7 @@
 return {
 	"akinsho/nvim-bufferline.lua",
 	version = "*",
+	after = "catppuccin",
 	opts = {
 		options = {
 			mode = "tabs",

@@ -28,12 +28,6 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475a \
 --multi"
 
-# export XDG_CONFIG_HOME/git/config
-# export XDG_CONFIG_HOME/git/ignore
-# export XDG_CONFIG_HOME/git/attributes
-# export XDG_CONFIG_HOME/git/credentials
-# export XDG_CONFIG_HOME/git/gitk
-
 # Homebrew
 HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
 
@@ -43,6 +37,12 @@ fi
 
 if type bat &>/dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    alias cat="bat"
+fi
+
+# Silicon doesn't seem to support ~ or $HOME
+if type silicon &>/dev/null; then
+ alias silicon="silicon --theme=\"~/dotfiles/bat/.config/bat/themes/Catppuccin Mocha.tmTheme\""
 fi
 
 # Zinit
