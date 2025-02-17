@@ -1,3 +1,5 @@
+# dotfiles
+
 These are my dotfiles. I use `stow` to manage the symlinks.
 
 # Setup
