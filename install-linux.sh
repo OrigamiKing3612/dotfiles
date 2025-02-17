@@ -13,6 +13,7 @@ else
     sudo apt update && sudo apt install -y curl git tmux wget stow ripgrep build-essential
 fi
 
+PROCESSOR=$(uname -m)
 if [ "$PROCESSOR" = "x86_64" ]; then
     NVIM_ARCH="64"
 elif [ "$PROCESSOR" = "aarch64" ]; then
@@ -23,7 +24,6 @@ else
 fi
 REPO_URL="https://github.com/OrigamiKing3612/dotfiles.git"
 CLONE_DIR="$HOME/dotfiles"
-PROCESSOR=$(uname -m)
 
 # Check if a README file exists (case-insensitive)
 if ! ls README* >/dev/null 2>&1; then
