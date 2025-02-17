@@ -27,13 +27,6 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475a \
 --multi"
 
-# Homebrew
-HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
-
-if [ -f "$HB_CNF_HANDLER" ]; then
-    source "$HB_CNF_HANDLER";
-fi
-
 if type bat &>/dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
     alias cat="bat"
@@ -88,5 +81,8 @@ alias :q='exit'
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+export PATH="$PATH:/opt/nvim/bin"
+export PATH="$PATH:/opt/swift/bin"
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
+
