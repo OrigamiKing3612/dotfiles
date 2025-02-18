@@ -19,6 +19,19 @@ Run `stow` on the folders if this folder. (ex: `stow bash ghostty`)
 
 ## clean
 
+
+## ghostty
+### Mac
+```bash
+brew install --cask ghostty
+```
+
+## i3
+```bash
+sudo pacman -S i3-gaps picom polybar rustup
+yay -S i3lock-color
+```
+
 ## nvim
 ### Mac
 ```bash
