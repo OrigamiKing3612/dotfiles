@@ -28,7 +28,7 @@ brew install --cask ghostty
 
 ## i3
 ```bash
-sudo pacman -S i3 dmenu i3-gaps picom polybar rustup
+sudo pacman -S i3 dmenu i3-gaps  polybar rustup
 yay -S i3lock-color
 ```
 
