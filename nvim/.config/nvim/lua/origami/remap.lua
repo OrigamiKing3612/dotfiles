@@ -88,8 +88,10 @@ vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<C
 -- silicon
 vim.keymap.set({ "v", "x" }, "<leader>sc", "<cmd>'<,'>Silicon<CR>")
 
--- lazygit
-vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>")
+-- snacks
+vim.keymap.set("n", "<leader>lg", function()
+	require("snacks").lazygit()
+end)
 
 vim.api.nvim_create_user_command("W", "w", {})
 

@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 	},
-	opts = function()
+	opts = function(_, opts)
 		vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
 		vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
 		vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
@@ -12,6 +12,16 @@ return {
 
 		--vim.cmd(":Neotree filesystem reveal left")
 		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>")
+
+		local function on_move(data)
+			Snacks.rename.on_rename_file(data.source, data.destination)
+		end
+		local events = require("neo-tree.events")
+		opts.event_handlers = opts.event_handlers or {}
+		vim.list_extend(opts.event_handlers, {
+			{ event = events.FILE_MOVED, handler = on_move },
+			{ event = events.FILE_RENAMED, handler = on_move },
+		})
 
 		return {
 			close_if_last_window = true,
