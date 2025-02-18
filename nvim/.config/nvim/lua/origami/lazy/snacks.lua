@@ -5,6 +5,9 @@ return {
 		image = {},
 		lazygit = {
 			configure = true,
+			win = {
+				style = "lazygit",
+			},
 		},
 		bigfile = {
 			notify = true,
