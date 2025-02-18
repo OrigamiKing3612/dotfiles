@@ -54,6 +54,8 @@ snap list --all | awk '/disabled/{print $1, $3}' |
 echo ""
 
 # docker
-docker image prune -f
+if type docker &>/dev/null; then
+    docker image prune -f
+fi
 
 echo "Done!!"

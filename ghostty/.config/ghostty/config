@@ -1,8 +1,8 @@
 theme = catppuccin-mocha
 
 # background-opacity = 0.85
-background-blur-radius = 60
-
+# background-blur-radius = 60
+macos-icon="xray"
 macos-titlebar-style = "tabs"
 mouse-hide-while-typing = "true"
 
