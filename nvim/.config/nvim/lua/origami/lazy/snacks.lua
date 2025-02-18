@@ -4,7 +4,7 @@ return {
 	opts = {
 		image = {},
 		lazygit = {
-			configure = true,
+			configure = false,
 			win = {
 				style = "lazygit",
 			},
