@@ -1,7 +1,10 @@
 #!/bin/bash
-option=$(echo -e "Shutdown\nReboot\nLogout" | rofi -dmenu -p "System Actions" -lines 10)
+option=$(echo -e "Settings\nShutdown\nReboot\nLogout" | rofi -dmenu -p "System Actions" -lines 10)
 
 case $option in
+    Settings)
+        xfce4-settings-manager &
+        ;;
     Shutdown)
         poweroff
         ;;
