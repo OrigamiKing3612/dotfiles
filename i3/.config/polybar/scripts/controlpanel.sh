@@ -7,7 +7,7 @@ lock=" Lock"
 logout="󰍃 Logout"
 
 
-option=$(echo -e "$settings\n$shutdown\n$reboot\n$lock\n$logout" | rofi -dmenu -p "System Actions" -lines 5)
+option=$(echo -e "$settings\n$shutdown\n$reboot\n$lock\n$logout" | rofi -dmenu -p "Control Panel" -lines 5)
 
 case $option in
     $settings)
