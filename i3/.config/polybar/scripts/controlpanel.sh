@@ -1,29 +1,20 @@
 #!/bin/bash
 
-settings=" Settings"
-shutdown=" Shutdown"
-reboot="󰜉 Reboot"
 lock=" Lock"
-logout="󰍃 Logout"
+volup="󰝟 Volume Up"
+voldown="󰝞 Volume Down"
 
-
-option=$(echo -e "$settings\n$shutdown\n$reboot\n$lock\n$logout" | rofi -dmenu -p "Control Panel" -lines 5)
+option=$(echo -e "$lock\n$volup\n$voldown" | rofi -dmenu -p "Control Panel" -lines 5)
 
 case $option in
-    $settings)
-        xfce4-settings-manager &
-        ;;
-    $shutdown)
-        poweroff
-        ;;
-    $reboot)
-        reboot
-        ;;
     $lock)
         i3lock
         ;;
-    $logout)
-        pkill -KILL -u $USER
+    $volup)
+        pamixer --increase 5
+        ;;
+    $voldown)
+        pamixer --decrease 5
         ;;
     *)
         exit 1
