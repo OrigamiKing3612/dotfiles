@@ -6,7 +6,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -23,7 +23,7 @@ bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+q kill
 
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec rofi -show drun
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
