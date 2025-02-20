@@ -1,0 +1,52 @@
+(defpoll volume-status :interval "1s" "controlmenu/volume.sh --status")
+(defpoll volume-icon :interval "1s" "controlmenu/volume.sh --icon")
+(defpoll volume-slider-indicator :interval "5s" "controlmenu/slider/volume-slider.sh --icon")
+(deflisten volume "controlmenu/slider/volume-slider.sh --value")
+
+(defwidget quicksettings []
+  (box :class "quicksettings" :orientation "v"
+    (box :class "top-items" :orientation "h" :spacing 10
+        (button :class "settings button"
+            :width 100
+            :onclick ""
+            " "
+          )
+        (button :class "power button"
+            :width 10
+            :onclick ""
+            " "
+          )
+      )
+    (box :class "middle-items" :orientation "h"
+        (box :class "sliders" :orientation "v"
+            (box :orientation "h" :class "volume"
+              (box
+                :width 10
+                (button :class "volume-mute button"
+                        :onclick "pactl set-sink-mute 0 toggle"
+                  "${volume-slider-indicator}"
+                  )
+                )
+              (scale :class "volume-slider slider"
+                :value {volume == "" ? 0 : volume}
+                :orientation "h"
+                :width 200
+                :max 100
+                :min 1
+                :marks true
+                :onchange "pactl set-sink-volume 0 {}%"
+                )
+              )
+          )
+      )
+    (box :class "bottom-items"
+
+      )
+    )
+  )
+(defwindow controlcenter
+  :windowtype "normal"
+  :geometry (geometry :x "-1%" :y "5%" :anchor "right top")
+  :wm-ignore true
+  (quicksettings))
+

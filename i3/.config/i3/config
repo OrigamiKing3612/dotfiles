@@ -93,6 +93,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Tab exec "i3lock"
 
 mode "resize" {
     bindsym h resize shrink width 10 px or 10 ppt
@@ -147,6 +148,7 @@ client.background        $base
 default_border pixel 3
 
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id xmodmap ~/.Xmodmap
 # custom stuff not pushed to github
 exec_always --no-startup-id ~/.config/i3/start-i3.sh

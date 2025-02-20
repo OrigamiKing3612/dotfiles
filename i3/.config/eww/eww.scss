@@ -1,0 +1,68 @@
+@import "scss/theme.scss";
+
+* {
+  font-family: "Fira Mono Nerd Font", sans-serif;
+}
+
+.controlcenter {
+  padding: 1rem;
+  background-color: $base;
+  border-radius: 30px;
+}
+
+.button {
+  color: $text;
+  background: $surface0;
+  border: none;
+  font-size: 20px;
+  transition: color 0.3s ease;
+  border-radius: 30px;
+}
+
+.slider {
+  margin-left: 25px;
+  trough {
+    /* background-color: $red; */
+  }
+  highlight {
+    background-color: $green;
+  }
+}
+
+.top-items {
+  padding: 1rem;
+  .power {
+
+    &:hover {
+      color: $red;
+    }
+  }
+}
+
+.middle-items {
+  padding: 1rem;
+
+  .sliders {
+    .volume {
+      background-color: $surface0;
+      padding: 8px 12px;
+      border-radius: 8px;
+      box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.1);
+
+      .volume-mute {
+
+        &:hover {
+          color: $blue;
+        }
+      }
+
+      .volume-slider {
+      }
+    }
+  }
+}
+
+.bottom-items {
+  padding-top: 1rem;
+}
+

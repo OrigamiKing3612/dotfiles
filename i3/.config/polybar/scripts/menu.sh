@@ -1,13 +1,14 @@
 #!/bin/bash
 
 settings=" Settings"
+lock=" Lock"
 shutdown=" Shutdown"
 reboot="󰜉 Reboot"
-lock=" Lock"
 logout="󰍃 Logout"
+volume="  Volume Control"
 
 
-option=$(echo -e "$settings\n$shutdown\n$reboot\n$lock\n$logout" | rofi -dmenu -p "System Actions" -lines 5)
+option=$(echo -e "$settings\n$volume\n$shutdown\n$reboot\n$lock\n$logout" | rofi -dmenu -p "System Actions" -lines 5)
 
 case $option in
     $settings)
@@ -24,6 +25,9 @@ case $option in
         ;;
     $logout)
         pkill -KILL -u $USER
+        ;;
+    $volume)
+        pavucontrol
         ;;
     *)
         exit 1

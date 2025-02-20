@@ -21,7 +21,7 @@ else
     if [ "$count" == "muted" ]; then
         echo " "
     else
-        echo $count
+        echo "  $count"
     fi
 fi
 
