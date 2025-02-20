@@ -80,5 +80,13 @@
 
 .bottom-items {
   padding-top: 1rem;
+
+  .bottom {
+    .bluetooth {
+      &:hover {
+        color: blue;
+      }
+    }
+  }
 }
 

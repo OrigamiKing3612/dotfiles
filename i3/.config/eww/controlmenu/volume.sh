@@ -3,10 +3,8 @@ STATUS=$(pactl get-sink-mute 0 | awk '{print $2}')
 toggle() {
     if [ $STATUS == "no" ]; then
         pactl set-sink-mute 0 toggle
-        notify-send --icon=volume-level-muted --urgency=normal "Volume " "Volume has been muted!"
     else
         pactl set-sink-mute 0 toggle
-        notify-send --icon=volume-level-high --urgency=normal "Volume" "Volume has been unmuted!"
     fi
 }
 

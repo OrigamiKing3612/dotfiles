@@ -6,6 +6,9 @@
 (defpoll brightness-slider-indicator :interval "5s" "controlmenu/slider/brightness-slider.sh --icon")
 (deflisten brightness "controlmenu/slider/brightness-slider.sh --value")
 
+(defpoll bluetooth-status :interval "1s" "controlmenu/bluetooth.sh --status")
+(defpoll bluetooth-icon :interval "1s" "controlmenu/bluetooth.sh --icon")
+
 (defwidget quicksettings []
   (box :class "quicksettings" :orientation "v"
     (box :class "top-items" :orientation "h" :spacing 10
@@ -65,8 +68,8 @@
             " "
             )
           (button :class "bluetooth button"
-
-            "󰂯 ")
+            :onclick "controlmenu/bluetooth.sh --toggle"
+            "${bluetooth-icon}")
         )
         (button :class "close button"
           :onclick "eww close controlcenter"
