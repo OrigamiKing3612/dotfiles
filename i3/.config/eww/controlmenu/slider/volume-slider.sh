@@ -6,16 +6,16 @@ icon() {
         vol=$(pactl get-sink-volume 0 | grep -Po '\d+(?=%)' | head -n 1)
 
         if [[ ${vol} -ge 80 ]]; then
-            echo "󰕾"
+            echo "󰕾 "
         elif [[ ${vol} -ge 40 ]]; then
-            echo "󰖀"
+            echo "󰖀 "
         elif [[ ${vol} -ge 10 ]]; then
-            echo "󰕿"
+            echo "󰕿 "
         else
-            echo "󰝟"
+            echo "󰝟 "
         fi
     else
-        echo "󰝟"
+        echo "󰝟 "
     fi
 }
 

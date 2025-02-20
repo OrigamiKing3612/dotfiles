@@ -17,12 +17,16 @@
   font-size: 20px;
   transition: color 0.3s ease;
   border-radius: 30px;
+  box-shadow: 2px 2px 03px rgba(255, 255, 255, 0.2);
 }
 
 .slider {
-  margin-left: 25px;
+  background-color: $surface0;
+  /* padding: 8px 12px; */
+  border-radius: 8px;
   trough {
-    /* background-color: $red; */
+    background-color: $surface0;
+    border-color: $surface1;
   }
   highlight {
     background-color: $green;
@@ -31,7 +35,17 @@
 
 .top-items {
   padding: 1rem;
-  .power {
+  .settings {
+    &:hover {
+      color: $teal;
+    }
+  }
+  .terminal {
+    &:hover {
+      color: $blue;
+    }
+  }
+  .lock {
 
     &:hover {
       color: $red;
@@ -40,23 +54,25 @@
 }
 
 .middle-items {
-  padding: 1rem;
-
   .sliders {
     .volume {
-      background-color: $surface0;
-      padding: 8px 12px;
-      border-radius: 8px;
-      box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.1);
-
-      .volume-mute {
-
+      .volume-button {
         &:hover {
           color: $blue;
         }
       }
 
       .volume-slider {
+      }
+    }
+    .brightness {
+      .brightness-button {
+        &:hover {
+          color: $sky;
+        }
+      }
+      .brightness-slider {
+
       }
     }
   }
