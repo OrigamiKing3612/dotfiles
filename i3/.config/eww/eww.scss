@@ -63,6 +63,9 @@
       }
 
       .volume-slider {
+        highlight {
+          background-color: $blue;
+        }
       }
     }
     .brightness {
@@ -72,7 +75,9 @@
         }
       }
       .brightness-slider {
-
+        highlight {
+          background-color: $sky;
+        }
       }
     }
   }

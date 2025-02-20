@@ -28,7 +28,7 @@
           )
       )
     (box :class "middle-items" :orientation "h"
-        (box :class "sliders" :orientation "v"
+        (box :class "sliders" :orientation "v" :spacing 5
             (box :orientation "h" :class "volume" :spacing 10 :space-evenly false
               (button :class "volume-button button"
                 :onclick "pactl set-sink-mute 0 toggle"
