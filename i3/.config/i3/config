@@ -2,8 +2,9 @@ set $mod Mod1
 
 font pango:"Fira Mono" 8
 
-gaps inner 5
-gaps outer -5
+set $gap 3
+gaps inner $gap
+gaps outer -$gap
 
 smart_gaps on
 
