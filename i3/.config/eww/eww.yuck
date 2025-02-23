@@ -80,6 +80,7 @@
   )
 (defwindow controlcenter
   :windowtype "normal"
+  :class "controlcenter-window"
   :geometry (geometry :x "-1%" :y "5%" :width 450 :height 400 :anchor "right top")
   :wm-ignore true
   (quicksettings))

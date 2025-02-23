@@ -4,6 +4,10 @@
   font-family: "Fira Mono Nerd Font", sans-serif;
 }
 
+.controlcenter-window {
+
+}
+
 .controlcenter {
   padding: 1rem;
   background-color: $base;
@@ -22,7 +26,6 @@
 
 .slider {
   background-color: $surface0;
-  /* padding: 8px 12px; */
   border-radius: 8px;
   trough {
     background-color: $surface0;
@@ -32,7 +35,9 @@
     background-color: $green;
   }
 }
-
+.quicksettings {
+  border-color: $surface1;
+}
 .top-items {
   padding: 1rem;
   .settings {
