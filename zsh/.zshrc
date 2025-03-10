@@ -38,6 +38,9 @@ if type bat &>/dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
     alias cat="bat"
 fi
+if type nvim &>/dev/null; then
+    export MANPAGER="nvim +Man!"
+fi
 
 # Silicon doesn't seem to support ~ or $HOME
 if type silicon &>/dev/null; then
@@ -87,6 +90,10 @@ alias :q='exit'
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
 
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"

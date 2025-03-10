@@ -12,6 +12,7 @@ return {
 			swift = { "swiftformat" },
 			html = { "ast-grep" },
 			bash = { "shfmt" },
+			yaml = { "yamlfmt" },
 		},
 	},
 	init = function()
