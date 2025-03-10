@@ -1,0 +1,87 @@
+(defpoll volume-status :interval "1s" "./extra/volume.sh --status")
+(defpoll volume-icon :interval "1s" "./extra/volume.sh --icon")
+(defpoll volume-slider-indicator :interval "5s" "./extra/slider/volume-slider.sh --icon")
+(deflisten volume "./extra/slider/volume-slider.sh --value")
+
+(defpoll brightness-slider-indicator :interval "5s" "./extra/slider/brightness-slider.sh --icon")
+(deflisten brightness "./extra/slider/brightness-slider.sh --value")
+
+(defpoll bluetooth-status :interval "1s" "./extra/bluetooth.sh --status")
+(defpoll bluetooth-icon :interval "1s" "./extra/bluetooth.sh --icon")
+
+(defwidget quicksettings []
+  (box :class "quicksettings" :orientation "v"
+    (box :class "top-items" :orientation "h" :spacing 10
+      (box :orientation "h" :spacing 10
+        (button :class "settings button"
+            :onclick "xfce4-settings-manager &"
+            " "
+          )
+        (button :class "terminal button"
+            :onclick "ghostty &"
+            " "
+          )
+        )
+        (button :class "lock button"
+            :onclick "i3lock --color=000000"
+            " "
+          )
+      )
+    (box :class "middle-items" :orientation "h"
+        (box :class "sliders" :orientation "v" :spacing 5
+            (box :orientation "h" :class "volume" :spacing 10 :space-evenly false
+              (button :class "volume-button button"
+                :onclick "pactl set-sink-mute 0 toggle"
+                "${volume-slider-indicator}"
+                )
+              (scale :class "volume-slider slider"
+                :value {volume == "" ? 0 : volume}
+                :orientation "h"
+                :width 350
+                :max 101
+                :min 0
+                :marks true
+                :onchange "pactl set-sink-volume 0 {}%"
+                )
+              )
+            (box :orientation "h" :class "brightness" :spacing 10 :space-evenly false
+              (button :class "brightness-button button"
+                :onclick ""
+                " "
+                )
+              (scale :class "brightness-slider slider"
+                :value {brightness == "" ? 0 : brightness}
+                :orientation "h"
+                :width 350
+                :max 100
+                :min 1
+                :marks true
+                :onchange "brightnessctl s {}% 2>&1 > /dev/null"
+                )
+              )
+          )
+      )
+    (box :class "bottom-items" :orientation "v" :spacing 10
+      (box :class "bottom" :orientation "h" :spacing 10
+          (button :class "wifi button"
+
+            " "
+            )
+          (button :class "bluetooth button"
+            :onclick "controlmenu/bluetooth.sh --toggle"
+            "${bluetooth-icon}")
+        )
+        (button :class "close button"
+          :onclick "eww close controlcenter"
+          "Close"
+          )
+      )
+    )
+  )
+(defwindow controlcenter
+  :windowtype "normal"
+  :class "controlcenter-window"
+  :geometry (geometry :x "-1%" :y "5%" :width 450 :height 400 :anchor "right top")
+  :wm-ignore true
+  (quicksettings))
+
