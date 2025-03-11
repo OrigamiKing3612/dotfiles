@@ -1,0 +1,100 @@
+* {
+  font-family: "Fira Mono Nerd Font", sans-serif;
+}
+
+.controlcenter-window {
+
+}
+
+.controlcenter {
+  padding: 1rem;
+  background-color: $base;
+  border-radius: 30px;
+}
+
+.button {
+  color: $text;
+  background: $surface0;
+  border: none;
+  font-size: 20px;
+  transition: color 0.3s ease;
+  border-radius: 30px;
+  box-shadow: 2px 2px 03px rgba(255, 255, 255, 0.2);
+}
+
+.slider {
+  background-color: $surface0;
+  border-radius: 8px;
+  trough {
+    background-color: $surface0;
+    border-color: $surface1;
+  }
+  highlight {
+    background-color: $green;
+  }
+}
+.quicksettings {
+  border-color: $surface1;
+}
+.top-items {
+  padding: 1rem;
+  .settings {
+    &:hover {
+      color: $teal;
+    }
+  }
+  .terminal {
+    &:hover {
+      color: $blue;
+    }
+  }
+  .lock {
+
+    &:hover {
+      color: $red;
+    }
+  }
+}
+
+.middle-items {
+  .sliders {
+    .volume {
+      .volume-button {
+        &:hover {
+          color: $blue;
+        }
+      }
+
+      .volume-slider {
+        highlight {
+          background-color: $blue;
+        }
+      }
+    }
+    .brightness {
+      .brightness-button {
+        &:hover {
+          color: $sky;
+        }
+      }
+      .brightness-slider {
+        highlight {
+          background-color: $sky;
+        }
+      }
+    }
+  }
+}
+
+.bottom-items {
+  padding-top: 1rem;
+
+  .bottom {
+    .bluetooth {
+      &:hover {
+        color: blue;
+      }
+    }
+  }
+}
+

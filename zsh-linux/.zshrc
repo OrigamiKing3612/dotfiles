@@ -75,13 +75,13 @@ alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 
 alias ls='ls --color=always'
 alias clean='~/clean.sh'
-alias vim='nvim'
 alias :q='exit'
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-export PATH="$PATH:/opt/nvim/bin"
+export QT_QPA_PLATFORMTHEME=qt5ct
+
 export PATH="$PATH:/opt/swift/bin"
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"

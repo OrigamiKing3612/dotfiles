@@ -2,11 +2,17 @@ set $mod Mod1
 
 font pango:"Fira Mono" 8
 
+set $gap 3
+gaps inner $gap
+gaps outer -$gap
+
+smart_gaps on
+
 exec --no-startup-id dex --autostart --environment i3
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -23,7 +29,7 @@ bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+q kill
 
 # bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec rofi -show drun
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -92,13 +98,14 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec i3-msg exit
+bindsym $mod+Tab exec "i3lock"
 
 mode "resize" {
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
+    bindsym h resize grow width 10 px or 10 ppt
+    bindsym j resize shrink height 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink width 10 px or 10 ppt
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -147,5 +154,7 @@ client.background        $base
 default_border pixel 3
 
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id xmodmap ~/.Xmodmap
 # custom stuff not pushed to github
 exec_always --no-startup-id ~/.config/i3/start-i3.sh
