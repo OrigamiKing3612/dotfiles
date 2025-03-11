@@ -64,6 +64,9 @@ npm install -g tree-sitter-cli
 ### Linux
 `curl -sS https://starship.rs/install.sh | sh`
 
+## starship-server
+`curl -sS https://starship.rs/install.sh | sh`
+
 ## tmux
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 

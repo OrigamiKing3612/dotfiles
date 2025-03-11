@@ -32,7 +32,7 @@ if ! ls README* >/dev/null 2>&1; then
 fi
 
 cd "$HOME/dotfiles"
-stow bash bat clean lazygit nvim starship tmux vim yazi silicon
+stow bash bat clean lazygit nvim starship-server tmux vim yazi silicon
 
 # ---------- Installing Stuff ----------
 

@@ -1,0 +1,206 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[ ](bg:#7d9a5c)\
+[ ](bg:#8fb69e)\
+[ ](bg:#a3bfae)\
+[ $hostname](bg:color1_bg fg:black)\
+[$os ](bg:color1_bg fg:black)\
+[](bg:color2_bg fg:color1_bg)\
+$directory\
+[](fg:color2_bg bg:color3_bg)\
+$git_branch\
+$git_status\
+[](fg:color3_bg bg:color4_bg)\
+$docker_context\
+$nodejs\
+$rust\
+$golang\
+$php\
+$swift\
+$aws\
+$c\
+$dart\
+$java\
+$kotlin\
+$lua\
+$python\
+$ruby\
+$scala\
+[](fg:color4_bg bg:color5_bg)\
+$time\
+[ ](fg:color5_bg)\
+\n$character"""
+
+palette = 'origami'
+
+[palettes.origami]
+black = '#090c0c'
+white = '#e3e5e5'
+color1_bg = '#a3bfae'
+color2_bg = '#7d9a5c'
+color3_bg = '#4a7733'
+color4_bg = '#2e4d20'
+color5_bg = '#1d2a14'
+
+[directory]
+style = "fg:white bg:color2_bg"
+format = "[ $path ]($style)"
+truncation_length = 0
+truncation_symbol = "…/"
+truncate_to_repo = false
+read_only = " 󰌾"
+
+[username]
+format = "[$user]($style)"
+
+[git_branch]
+symbol = " "
+style = "bg:color3_bg"
+format = '[[ $symbol $branch ](fg:color2_bg bg:color3_bg)]($style)'
+
+[git_status]
+style = "bg:color3_bg"
+format = '[[($all_status$ahead_behind )](fg:color2_bg bg:color3_bg)]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol](fg:color2_bg bg:color4_bg)]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[rust]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[golang]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[php]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[swift]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[aws]
+symbol = "  "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[c]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[dart]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[java]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[kotlin]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[lua]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[python]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[ruby]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[scala]
+symbol = " "
+style = "bg:color4_bg"
+format = '[[ $symbol ($version) ](fg:color2_bg bg:color4_bg)]($style)'
+
+[hostname]
+ssh_symbol = " |  "
+style = "bg:color1_bg"
+format = '$hostname$symbol ($version)'
+
+[os]
+format = '[$symbol](fg:black bg:color1_bg)'
+disabled = false
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = ""
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[time]
+disabled = false
+time_format = "%r" # Hour:Minute Format
+use_12hr = true
+style = "bg:color5_bg"
+format = '[[  $time ](fg:color1_bg bg:color5_bg)]($style)'
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:color2_bg)'
+error_symbol = '[](bold fg:color2_bg)'
+
