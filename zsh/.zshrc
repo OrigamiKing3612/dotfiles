@@ -19,6 +19,7 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+export _ZO_DATA_DIR="$XDG_DATA_HOME/zoxide"
 
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
@@ -44,7 +45,7 @@ fi
 
 # Silicon doesn't seem to support ~ or $HOME
 if type silicon &>/dev/null; then
- alias silicon="silicon --theme=\"~/dotfiles/bat/.config/bat/themes/Catppuccin Mocha.tmTheme\""
+    alias silicon="silicon --theme=\"~/dotfiles/bat/.config/bat/themes/Catppuccin Mocha.tmTheme\""
 fi
 
 # Zinit
@@ -95,5 +96,12 @@ if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
 
-eval "$(fzf --zsh)"
-eval "$(starship init zsh)"
+if type fzf &>/dev/null; then
+    eval "$(fzf --zsh)"
+fi
+if type starship &>/dev/null; then
+    eval "$(starship init zsh)"
+fi
+if type zoxide &>/dev/null; then
+    eval "$(zoxide init --cmd cd zsh)"
+fi

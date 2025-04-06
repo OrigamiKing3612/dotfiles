@@ -7,9 +7,9 @@ fi
 
 if [[ "$(uname -r)" == *ARCH* ]]; then
     sudo pacman -Syu --noconfirm
-    sudo pacman -S --noconfirm curl git tmux wget stow ripgrep yazi lazygit base-devel neovim neofetch gh bat
+    sudo pacman -S --noconfirm curl git tmux wget stow ripgrep yazi lazygit base-devel neovim neofetch gh bat zoxide
 else
-    sudo apt update && sudo apt install -y curl git tmux wget stow ripgrep build-essential neofetch gh bat
+    sudo apt update && sudo apt install -y curl git tmux wget stow ripgrep build-essential neofetch gh bat zoxide
 fi
 
 PROCESSOR=$(uname -m)

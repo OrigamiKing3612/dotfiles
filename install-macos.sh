@@ -11,7 +11,7 @@ if ! type brew &>/dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-brew install git tmux wget stow ripgrep bat fzf zsh nvm starship neovim lazygit
+brew install git tmux wget stow ripgrep bat fzf zsh nvm starship neovim lazygit zoxide
 
 REPO_URL="https://github.com/OrigamiKing3612/dotfiles.git"
 CLONE_DIR="$HOME/dotfiles"
