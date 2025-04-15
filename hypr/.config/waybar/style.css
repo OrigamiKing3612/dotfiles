@@ -1,7 +1,7 @@
 @import "./styles/colors.css";
 
 * {
-    font-family: "MesloLGS Nerd Font Mono Bold";
+    font-family: "FiraMono Nerd Font Bold";
     font-size: 16px;
     min-height: 0;
     font-weight: bold;
@@ -10,10 +10,14 @@
 window#waybar {
     background: transparent;
     background-color: @crust;
-    color: @overlay0;
-    transition-property: background-color;
-    transition-duration: 0.1s;
-    border-bottom: 1px solid @overlay1;
+    /* transitioj-property: background-color; */
+    /* transition-duration: 0.1s; */
+    /* border-bottom: 1px solid @overlay1; */
+    /* border: 2px solid transparent; */
+    /* border-image: linear-gradient(45deg, @blue, @green); */
+    /* border-image-slice: 1; */
+    /* padding: 5px 10px; */
+    /* border-radius: 9999px; */
 }
 
 #window {
@@ -51,7 +55,7 @@ button:hover {
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @red;
 }
 
 #pulseaudio,
@@ -80,11 +84,6 @@ button:hover {
     border-bottom: 2px solid @maroon;
 }
 
-#clock.date {
-    color: @mauve;
-    border-bottom: 2px solid @mauve;
-}
-
 #pulseaudio {
     color: @blue;
     border-bottom: 2px solid @blue;
@@ -97,7 +96,7 @@ button:hover {
 
 #idle_inhibitor {
     margin-right: 12px;
-    color: #7cb342;
+    color: @green;
 }
 
 #idle_inhibitor.activated {
@@ -109,7 +108,6 @@ button:hover {
     border-bottom: 2px solid @green;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
 .modules-left>widget:first-child>#workspaces {
     margin-left: 0;
 }
@@ -117,11 +115,4 @@ button:hover {
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right>widget:last-child>#workspaces {
     margin-right: 0;
-}
-
-#custom-vpn {
-    color: @lavender;
-    border-radius: 15px;
-    padding-left: 6px;
-    padding-right: 6px;
 }
