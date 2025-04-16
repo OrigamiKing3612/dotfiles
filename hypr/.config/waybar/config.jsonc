@@ -4,7 +4,7 @@
     // "margin-right": 5,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "pulseaudio", "battery", "clock"],
+    "modules-right": ["network", "battery", "pulseaudio", "custom/brightness", "clock"],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -44,12 +44,24 @@
         "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
     },
     "pulseaudio": {
-        "scroll-step": 1, // %, can be a float
-        "format": "{icon}  {volume}%",
+        "scroll-step": 1,
+        "format": "{icon} {volume}%",
+            "format-bluetooth": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {
             "default": ["", "", " "]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "interval": 2
+    },
+    "custom/brightness": {
+        "interval": 2,
+        "format": "󰌵 {}%",
+        "exec": "cur=$(brightnessctl -d intel_backlight get); max=$(brightnessctl -d intel_backlight max); [ \"$max\" -gt 0 ] && printf \"%d\" $((cur * 100 / max)) || echo 0",
+        "return-type": "text",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "on-click": "brightnessctl set 100%",
+        "tooltip": false
     }
 }

@@ -10,9 +10,9 @@
 window#waybar {
     background: transparent;
     background-color: @crust;
-    /* transitioj-property: background-color; */
-    /* transition-duration: 0.1s; */
-    /* border-bottom: 1px solid @overlay1; */
+    transition-property: background-color;
+    transition-duration: 0.1s;
+    border-bottom: 1px solid @overlay1;
     /* border: 2px solid transparent; */
     /* border-image: linear-gradient(45deg, @blue, @green); */
     /* border-image-slice: 1; */
@@ -22,8 +22,9 @@ window#waybar {
 
 #window {
     margin: 8px;
-    padding-left: 8;
-    padding-right: 8;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: @text;
 }
 
 button {
@@ -44,18 +45,19 @@ button:hover {
 
 #workspaces button.focused {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @rosewater;
-    border-top: 2px solid @rosewater;
+    color: @blue;
+    border-bottom: 2px solid @blue;
 }
 
 #workspaces button.active {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    color: @sapphire;
+    border-bottom: 2px solid @sapphire;
 }
 
 #workspaces button.urgent {
-    background-color: @red;
+    color: @red;
+    border-bottom: 2px solid @red;
 }
 
 #pulseaudio,
@@ -70,23 +72,29 @@ button:hover {
 #tray,
 #network,
 #mode,
+#custom-brightness,
 #scratchpad {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 4px;
-  margin-right: 4px;
-  padding-left: 4px;
-  padding-right: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 #clock {
-    color: @maroon;
-    border-bottom: 2px solid @maroon;
+    color: @text;
+    border-bottom: 2px solid @text;
 }
 
 #pulseaudio {
-    color: @blue;
-    border-bottom: 2px solid @blue;
+    color: @peach;
+    border-bottom: 2px solid @peach;
+}
+
+#custom-brightness {
+    color: @sky;
+    border-bottom: 2px solid @sky;
 }
 
 #network {
