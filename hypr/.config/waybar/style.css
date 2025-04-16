@@ -9,7 +9,7 @@
 
 window#waybar {
     background: transparent;
-    background-color: @crust;
+    background-color: @base;
     transition-property: background-color;
     transition-duration: 0.1s;
     border-bottom: 1px solid @overlay1;
@@ -35,22 +35,23 @@ button {
 
 button:hover {
     background: inherit;
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    color: @sky;
+    border-bottom: 2px solid @sky;
 }
 
 #workspaces button {
-    padding: 0 4px;
+    /* padding: 0 4px; */
+    color: @surface0;
 }
 
 #workspaces button.focused {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: @mantle;
     color: @blue;
     border-bottom: 2px solid @blue;
 }
 
 #workspaces button.active {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: @mantle;
     color: @sapphire;
     border-bottom: 2px solid @sapphire;
 }
@@ -58,6 +59,13 @@ button:hover {
 #workspaces button.urgent {
     color: @red;
     border-bottom: 2px solid @red;
+}
+
+#window {
+    color: @text;
+    padding: 5px 15px;
+    background-color: @surface0;
+    border-radius: 99999px;
 }
 
 #pulseaudio,
