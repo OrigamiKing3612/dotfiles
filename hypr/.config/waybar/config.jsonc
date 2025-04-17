@@ -17,7 +17,7 @@
         }
     },
     "clock": {
-        "format": "<span foreground='#f5c2e7'>  </span>{:%a %d %I:%M:%S %p}",
+        "format": "<span foreground='#f5c2e7'>  </span>{:%a %b %d %I:%M:%S %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 1
     },

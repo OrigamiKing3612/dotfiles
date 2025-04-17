@@ -84,7 +84,7 @@
           "label": "",
           "type": "toggle",
           "active": true,
-          "command": "",
+          "command": "blueman-manager",
           "update-command": ""
         },
         {

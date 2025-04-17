@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo pacman -S hyprland hypridle hyprlock hyprpaper waybar wofi rofi hyprpolkitagent swaync
+sudo pacman -S hyprland hypridle hyprlock hyprpaper waybar wofi rofi hyprpolkitagent swaync blueman alsa-utils bluez
 yay -S hyprshot

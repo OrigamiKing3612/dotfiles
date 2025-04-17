@@ -1,5 +1,5 @@
 * {
-  color: @text;
+  /* color: @text; */
   /* all: unset; */
   font-size: 1rem;
   font-weight: 900;
@@ -19,19 +19,16 @@
 .widget-buttons-grid > flowbox > flowboxchild > button {
   margin: 0 4px 4px 0;
   padding: 1rem 4rem;
-  background: @surface;
-  color: @crust;
+  background: @base;
   border-radius: 999px;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: @hover;
-  color: @crust;
+  background: @surface2;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
-  background: @active;
-  color: @crust;
+  /* color: @; */
 }
 
 /* Brightness */
@@ -39,22 +36,23 @@
   padding: 8px 16px;
   margin: 0 0 8px 0;
   border-radius: 20px;
-  background: @surface;
+  background: @surface1;
 }
 
 slider {
+    color: @red;
 }
 
 .widget-backlight label {
 }
 
 .widget-backlight trough {
-  background: @surface;
+  background: @surface1;
   margin: 0 8px;
 }
 
 .widget-backlight trough highlight {
-  background: @active;
+  background: @sky;
   border: unset;
 }
 
@@ -67,7 +65,7 @@ slider {
   padding: 8px 16px;
   margin: 0 0 8px 0;
   border-radius: 20px;
-  background: @surface;
+  background: @surface1;
 }
 
 slider {
@@ -77,61 +75,17 @@ slider {
 }
 
 .widget-volume trough {
-  background: @surface;
+  background: @surface1;
   margin: 0 8px;
 }
 
 .widget-volume trough highlight {
-  background: @active;
+  background: @red;
   border: unset;
 }
 
 .widget-volume button {
   padding: 0 4px;
-}
-
-/* Music player */
-.widget-mpris {
-  background: @surface;
-  border-radius: 20px;
-  margin: 0 4px 8px 4px;
-}
-
-.widget-mpris-player {
-  border-radius: 20px;
-}
-
-.widget-mpris > box > button {
-  border-radius: 20px;
-  background: @surface;
-  border-radius: 20px;
-  padding: 2px;
-}
-
-.widget-mpris button {
-  background: @active;
-  border-radius: 20px;
-  padding: 2px;
-  margin: 0 0 8px 0;
-}
-
-.widget-mpris button:hover {
-  background: @hover;
-}
-
-.widget-mpris-album-art {
-  border-radius: 20px;
-  margin: 8px 0 0 8px;
-}
-
-.widget-mpris-title {
-  /* font-weight: 700; */
-  /* font-size: 1rem; */
-}
-
-.widget-mpris-subtitle {
-  /* font-weight: 500; */
-  /* font-size: 0.8rem; */
 }
 
 /* Notification clear button */
@@ -141,13 +95,13 @@ slider {
 }
 
 .widget-title button {
-  background: @surface;
+  background: @surface1;
   border-radius: 20px;
   padding: 4px 16px;
 }
 
 .widget-title button:hover {
-  background: @hover;
+  background: @surface2;
 }
 
 .widget-donotdisturb {
@@ -156,47 +110,49 @@ slider {
 
 .widget-donotdisturb > switch {
   color: @text;
-  background: @surface;
+  background: @surface2;
   border-radius: 20px;
   box-shadow: none;
   padding: 2px;
 }
 
 .widget-donotdisturb > switch:hover {
-  background: @hover;
+  background: @surface2;
   color: @crust;
 }
 
 .widget-donotdisturb > switch:hover:checked {
-  background: @hover;
-  color: @crust;
+  background: @surface2;
+  color: @green;
 }
 
 .widget-donotdisturb > switch:checked {
-  background: @active;
-  color: @crust;
+  background: @sky;
+  color: @green;
 }
 
 .widget-donotdisturb > switch slider {
-  color: @crust;
-  background: @hover;
+  color: @green;
+  background: @surface2;
   border-radius: 20px;
-  border: 2px solid @active;
+  border: 2px solid @sky;
 }
 
 .widget-donotdisturb > switch:checked slider {
   color: @lavender;
-  background: @active;
+  background: @sky;
 }
 
 /* Buttons */
 
 .control-center {
-  background: @surface0;
-  border-radius: 20px;
-  border: 2px solid @lavender;
-  margin: 0;
-  padding: 8px 8px 0 8px;
+    border: 3px solid transparent;
+    border-radius: 25px;
+    background:
+        linear-gradient(@surface0, @surface0) padding-box,
+        linear-gradient(315deg, @green, @blue) border-box;
+    padding: 5px 10px;
+    margin: 0;
 }
 
 /* Notifications  */
@@ -205,7 +161,7 @@ slider {
   .notification-row
   .notification-background
   .notification.critical {
-  background-color: @surface;
+  background-color: @surface1;
   border-radius: 20px;
   margin: 4px 0;
   padding: 8px 8px 8px 16px;
@@ -248,7 +204,7 @@ slider {
   > *:last-child
   > *
   .notification-action {
-  background-color: @surface;
+  background-color: @surface1;
   border-radius: 20px;
 }
 
@@ -259,20 +215,20 @@ slider {
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @hover;
+  background-color: @surface2;
 }
 
 .control-center .notification-row .notification-background .close-button {
   background: transparent;
   border-radius: 20px;
   color: @text;
-  background-color: @surface;
+  background-color: @surface1;
   margin: 0px;
   padding: 4px;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  background-color: @hover;
+  background-color: @surface2;
 }
 
 progressbar,
@@ -320,7 +276,7 @@ trough slider:hover {
 
 .notification-group-collapse-button,
 .notification-group-close-all-button {
-  background: @surface;
+  background: @surface1;
   margin: 4px;
   border-radius: 20px;
   padding: 8px;
@@ -328,5 +284,5 @@ trough slider:hover {
 
 .notification-group-collapse-button:hover,
 .notification-group-close-all-button:hover {
-  background: @hover;
+  background: @surface2;
 }
