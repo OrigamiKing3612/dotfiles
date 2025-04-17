@@ -124,6 +124,11 @@ button:hover {
     border-bottom: 2px solid @green;
 }
 
+#custom-notifications {
+    color: @red;
+    border-bottom: 2px solid @red;
+}
+
 .modules-left>widget:first-child>#workspaces {
     margin-left: 0;
 }
