@@ -14,9 +14,11 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  background: @base;
+  background:
+    linear-gradient(@surface0, @surface0) padding-box,
+    linear-gradient(315deg, @green, @blue) border-box;
   border-radius: 20px;
-  border: 2px solid @lavender;
+  border: 2px solid @blue;
   margin: 0;
   padding: 8px 8px 0 8px;
 }
@@ -61,7 +63,7 @@
   > *
   .notification-action {
   border-radius: 0.5rem;
-  background-color: @crust;
+  background-color: @surface1;
   margin: 0.4rem;
   border: 1px solid transparent;
 }
@@ -73,8 +75,8 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @hover;
-  border: 1px solid @lavender;
+  background-color: @surface1;
+  border: 1px solid @blue;
 }
 
 .floating-notifications.background
@@ -84,7 +86,7 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @lavender;
+  background-color: @blue;
   color: @text;
 }
 
@@ -117,22 +119,22 @@
   .notification-row
   .notification-background
   .close-button:hover {
-  background-color: @lavender;
+  background-color: @blue;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @lavender;
+  background-color: @blue;
   color: @text;
 }
 
 .notification.critical progress {
-  background-color: @lavender;
+  background-color: @blue;
 }
 
 .notification.low progress,
 .notification.normal progress {
-  background-color: @lavender;
+  background-color: @blue;
 }

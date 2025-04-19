@@ -19,7 +19,7 @@
 .widget-buttons-grid > flowbox > flowboxchild > button {
   margin: 0 4px 4px 0;
   padding: 1rem 4rem;
-  background: @base;
+  background: @surface1;
   border-radius: 999px;
 }
 
