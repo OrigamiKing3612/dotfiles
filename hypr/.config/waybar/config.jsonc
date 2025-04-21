@@ -83,5 +83,13 @@
         "on-click-right": "swaync-client -d -sw",
         "on-click": "swaync-client -t -sw",
         "escape": true
-  }
+  },
+  "hyprland/window": {
+        "format": "{title}",
+        "rewrite": {
+            "(.*) - Google Chrome": "$1",
+            "(.*) - (.*) - Obsidian v(.*)": "$1 - $2",
+            "tmux - (.*) - (.*)": "tmux: $1 - $2"
+        }
+    }
 }
