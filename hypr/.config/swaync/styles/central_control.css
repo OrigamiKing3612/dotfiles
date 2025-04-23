@@ -1,0 +1,288 @@
+* {
+  /* color: @text; */
+  /* all: unset; */
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: "FiraMono Nerd Font";
+  transition: 200ms;
+}
+
+.blank-window {
+  background: transparent;
+}
+
+.widget-buttons-grid {
+  margin: 0 0 8px 4px;
+  border-radius: 20px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  margin: 0 4px 4px 0;
+  padding: 1rem 4rem;
+  background: @surface1;
+  border-radius: 999px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @surface2;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+  /* color: @; */
+}
+
+/* Brightness */
+.widget-backlight {
+  padding: 8px 16px;
+  margin: 0 0 8px 0;
+  border-radius: 20px;
+  background: @surface1;
+}
+
+slider {
+    color: @red;
+}
+
+.widget-backlight label {
+}
+
+.widget-backlight trough {
+  background: @surface1;
+  margin: 0 8px;
+}
+
+.widget-backlight trough highlight {
+  background: @sky;
+  border: unset;
+}
+
+.widget-backlight button {
+  padding: 0 4px;
+}
+
+/* Volume */
+.widget-volume {
+  padding: 8px 16px;
+  margin: 0 0 8px 0;
+  border-radius: 20px;
+  background: @surface1;
+}
+
+slider {
+}
+
+.widget-volume label {
+}
+
+.widget-volume trough {
+  background: @surface1;
+  margin: 0 8px;
+}
+
+.widget-volume trough highlight {
+  background: @red;
+  border: unset;
+}
+
+.widget-volume button {
+  padding: 0 4px;
+}
+
+/* Notification clear button */
+.widget-title {
+  font-size: 1.5rem;
+  margin: 0 4px 0px 4px;
+}
+
+.widget-title button {
+  background: @surface1;
+  border-radius: 20px;
+  padding: 4px 16px;
+}
+
+.widget-title button:hover {
+  background: @surface2;
+}
+
+.widget-donotdisturb {
+  margin: 0 4px 8px 4px;
+}
+
+.widget-donotdisturb > switch {
+  color: @text;
+  background: @surface2;
+  border-radius: 20px;
+  box-shadow: none;
+  padding: 2px;
+}
+
+.widget-donotdisturb > switch:hover {
+  background: @surface2;
+  color: @crust;
+}
+
+.widget-donotdisturb > switch:hover:checked {
+  background: @surface2;
+  color: @green;
+}
+
+.widget-donotdisturb > switch:checked {
+  background: @sky;
+  color: @green;
+}
+
+.widget-donotdisturb > switch slider {
+  color: @green;
+  background: @surface2;
+  border-radius: 20px;
+  border: 2px solid @sky;
+}
+
+.widget-donotdisturb > switch:checked slider {
+  color: @lavender;
+  background: @sky;
+}
+
+/* Buttons */
+
+.control-center {
+    border: 3px solid transparent;
+    border-radius: 25px;
+    background:
+        linear-gradient(@surface0, @surface0) padding-box,
+        linear-gradient(315deg, @green, @blue) border-box;
+    padding: 5px 10px;
+    margin: 0;
+}
+
+/* Notifications  */
+.control-center .notification-row .notification-background,
+.control-center
+  .notification-row
+  .notification-background
+  .notification.critical {
+  background-color: @surface1;
+  border-radius: 20px;
+  margin: 4px 0;
+  padding: 8px 8px 8px 16px;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification.critical {
+  color: @red;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content {
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:first-child
+  > * {
+}
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > * {
+  min-height: 3.4em;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action {
+  background-color: @surface1;
+  border-radius: 20px;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:hover {
+  background-color: @surface2;
+}
+
+.control-center .notification-row .notification-background .close-button {
+  background: transparent;
+  border-radius: 20px;
+  color: @text;
+  background-color: @surface1;
+  margin: 0px;
+  padding: 4px;
+}
+
+.control-center .notification-row .notification-background .close-button:hover {
+  background-color: @surface2;
+}
+
+progressbar,
+progress,
+trough {
+  border-radius: 20px;
+}
+
+progressbar {
+  background-color: @red;
+}
+
+trough {
+}
+
+trough highlight {
+  padding: 8px;
+  background: @lavender;
+  border: 2px solid @lavender;
+  border-radius: 20px;
+}
+
+trough slider {
+  outline: none;
+  border: none;
+}
+
+trough slider:hover {
+}
+
+/* Notifications expanded-group */
+
+.notification-group {
+  margin: 0 4px 8px 4px;
+}
+.notification-group-headers {
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+}
+
+.notification-group-icon {
+  padding: 4px;
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background: @surface1;
+  margin: 4px;
+  border-radius: 20px;
+  padding: 8px;
+}
+
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+  background: @surface2;
+}

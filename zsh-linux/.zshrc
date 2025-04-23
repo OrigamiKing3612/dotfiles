@@ -83,7 +83,7 @@ alias :q='exit'
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-export PATH="$PATH:/opt/swift/bin"
+export PATH="$PATH:/opt/swift/bin:$HOME/.local/bin/"
 if type fzf &>/dev/null; then
     eval "$(fzf --zsh)"
 fi
