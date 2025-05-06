@@ -64,6 +64,9 @@ return {
 			lspconfig.docker_compose_language_service.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
 
 			local augroup = vim.api.nvim_create_augroup("LspAttachGroup", {})
 

@@ -13,6 +13,7 @@ return {
 			html = { "ast-grep" },
 			bash = { "shfmt" },
 			yaml = { "yamlfmt" },
+			go = { "goimports", "gopls" },
 		},
 	},
 	init = function()
