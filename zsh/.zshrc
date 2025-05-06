@@ -28,13 +28,6 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475a \
 --multi"
 
-# Homebrew
-HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
-
-if [ -f "$HB_CNF_HANDLER" ]; then
-    source "$HB_CNF_HANDLER";
-fi
-
 if type bat &>/dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
     alias cat="bat"
@@ -79,7 +72,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
-autoload -U compinit && compinit
+autoload -U compinit
+fpath=(${fpath[@]:#"/opt/homebrew/share/zsh/site-functions"})
+compinit
 zinit cdreplay -q
 
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
@@ -95,6 +90,8 @@ alias :q='exit'
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
+
+export PATH="$PATH:$CARGO_HOME/bin"
 
 if type fzf &>/dev/null; then
     eval "$(fzf --zsh)"

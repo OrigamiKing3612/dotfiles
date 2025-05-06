@@ -10,7 +10,7 @@ shell-integration-features = sudo
 
 # quick-terminal-position = top
 # quick-terminal-screen = main
-# keybind = ctrl+`=toggle_quick_terminal
+keybind = ctrl+`=toggle_quick_terminal
 
 # quick-terminal-autohide = true
 
