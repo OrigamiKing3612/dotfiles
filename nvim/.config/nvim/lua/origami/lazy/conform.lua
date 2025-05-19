@@ -14,6 +14,7 @@ return {
 			bash = { "shfmt" },
 			yaml = { "yamlfmt" },
 			go = { "goimports", "gopls" },
+			vue = { "prettierd", "prettier", stop_after_first = true },
 		},
 	},
 	init = function()

@@ -91,7 +91,7 @@ if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
 
-export PATH="$PATH:$CARGO_HOME/bin"
+export PATH="$PATH:$CARGO_HOME/bin:$HOME/go/bin"
 
 if type fzf &>/dev/null; then
     eval "$(fzf --zsh)"

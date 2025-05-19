@@ -35,3 +35,10 @@ autocmd("BufWritePre", {
 		require("conform").format({ bufnr = args.buf })
 	end,
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	callback = function()
+		vim.cmd("TSBufEnable highlight")
+	end,
+})

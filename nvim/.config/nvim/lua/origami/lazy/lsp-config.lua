@@ -25,6 +25,16 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			vim.lsp.config("volar", {
+				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+				init_options = {
+					vue = {
+						hybridMode = false,
+					},
+				},
+				-- capabilities = capabilities,
+			})
+
 			lspconfig.sourcekit.setup({
 				capabilities = {
 					workspace = {
@@ -41,9 +51,6 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.rust_analyzer.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.volar.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.pyright.setup({
@@ -67,6 +74,15 @@ return {
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.jdtls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.jsonls.setup({
+				capabilities = capabilities,
+			})
+			-- lspconfig.html.setup({
+			-- 	capabilities = capabilities,
+			-- })
 
 			local augroup = vim.api.nvim_create_augroup("LspAttachGroup", {})
 
