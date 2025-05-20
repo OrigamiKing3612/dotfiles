@@ -25,11 +25,16 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			vim.lsp.config("volar", {
+			local vue_language_server_path = vim.fn.expand("$MASON/packages")
+				.. "/vue-language-server"
+				.. "/node_modules/@vue/language-server"
+
+			lspconfig.volar.setup({
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 				init_options = {
-					vue = {
-						hybridMode = false,
+					languageFeatures = {
+						documentFormatting = true,
+						documentRangeFormatting = true,
 					},
 				},
 				-- capabilities = capabilities,
@@ -49,6 +54,16 @@ return {
 			})
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
+				init_options = {
+					plugins = {
+						{
+							name = "@vue/typescript-plugin",
+							location = vue_language_server_path,
+							languages = { "vue" },
+						},
+					},
+				},
+				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 			})
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,

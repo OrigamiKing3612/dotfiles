@@ -32,7 +32,10 @@ autocmd({ "BufWritePre" }, {
 autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
+		require("conform").format({
+			lsp_fallback = true,
+			bufnr = args.buf,
+		})
 	end,
 })
 
