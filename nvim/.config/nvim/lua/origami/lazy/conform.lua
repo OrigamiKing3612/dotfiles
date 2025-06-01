@@ -15,7 +15,7 @@ return {
 			yaml = { "yamlfmt" },
 			go = { "goimports", "gopls" },
 			-- vue = { "lsp" },
-			typescript = { "eslint_d", stop_after_first = true },
+			-- typescript = { "eslint_d", stop_after_first = true },
 		},
 		formatters = {
 			lsp = {
