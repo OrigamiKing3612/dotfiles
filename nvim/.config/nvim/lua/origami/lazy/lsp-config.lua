@@ -126,6 +126,7 @@ vim.lsp.config("sourcekit", {
 		},
 	},
 })
+vim.lsp.enable({ "sourcekit" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)

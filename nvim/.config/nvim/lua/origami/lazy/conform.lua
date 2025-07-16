@@ -14,6 +14,7 @@ return {
 			bash = { "shfmt" },
 			yaml = { "yamlfmt" },
 			go = { "goimports", "gopls" },
+			sql = { "sql_formatter" },
 			-- vue = { "lsp" },
 			-- typescript = { "eslint_d", stop_after_first = true },
 		},
