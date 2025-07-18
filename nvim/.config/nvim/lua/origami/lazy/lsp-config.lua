@@ -128,6 +128,12 @@ vim.lsp.config("sourcekit", {
 })
 vim.lsp.enable({ "sourcekit" })
 
+vim.lsp.config("bashls", {
+	filetypes = { "sh", "bash" },
+	capabilities = capabilities,
+})
+vim.lsp.enable({ "bashls" })
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		local opts = { buffer = event.buf }

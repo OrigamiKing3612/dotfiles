@@ -5,14 +5,11 @@ if [ "$(uname)" != "Linux" ]; then
     exit 1
 fi
 
-if [[ "$(uname -r)" == *ARCH* ]]; then
-    sudo pacman -Syu --noconfirm
-    sudo pacman -S --noconfirm curl git tmux wget stow ripgrep yazi lazygit base-devel neovim neofetch gh bat zoxide
-else
-    sudo apt update && sudo apt install -y curl git tmux wget stow ripgrep build-essential neofetch gh bat zoxide
-fi
+# ---------- Variables ----------
 
 PROCESSOR=$(uname -m)
+REPO_URL="https://github.com/OrigamiKing3612/dotfiles.git"
+CLONE_DIR="$HOME/dotfiles"
 if [ "$PROCESSOR" = "x86_64" ]; then
     NVIM_ARCH="64"
 elif [ "$PROCESSOR" = "aarch64" ]; then
@@ -21,15 +18,25 @@ else
     echo "Unsupported architecture: $PROCESSOR"
     exit 1
 fi
-REPO_URL="https://github.com/OrigamiKing3612/dotfiles.git"
-CLONE_DIR="$HOME/dotfiles"
+
+# ---------- Installing Dependencies ----------
+
+if [[ "$(uname -r)" == *ARCH* ]]; then
+    sudo pacman -Syu --noconfirm
+    sudo pacman -S --noconfirm curl git tmux wget stow ripgrep yazi lazygit base-devel neovim neofetch gh bat zoxide
+else
+    sudo apt update && sudo apt install -y curl git tmux wget stow ripgrep build-essential neofetch gh bat zoxide
+fi
 
 if ! ls README* >/dev/null 2>&1; then
     echo "Cloning repository..."
     git clone "$REPO_URL" "$CLONE_DIR"
 fi
 
+touch ~/.hushlogin
+
 cd "$HOME/dotfiles"
+rm ~/.bashrc
 stow bash bat clean lazygit nvim starship-server tmux vim yazi silicon
 
 # ---------- Installing Stuff ----------
