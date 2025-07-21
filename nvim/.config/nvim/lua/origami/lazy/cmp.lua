@@ -1,26 +1,8 @@
 return {
 	{ "github/copilot.vim" },
 	{
-		"L3MON4D3/LuaSnip",
-		dependencies = {
-			-- "saadparwaiz1/cmp_luasnip",
-			"rafamadriz/friendly-snippets",
-		},
-		opts = {
-			config = {
-				set_config = {
-					history = true,
-					updateevents = "TextChanged,TextChangedI",
-				},
-			},
-		},
-		config = function()
-			require("luasnip.loaders.from_snipmate").load({ paths = "./snippets" })
-		end,
-	},
-	{
 		"saghen/blink.cmp",
-		dependencies = { "rafamadriz/friendly-snippets" },
+		dependencies = { "rafamadriz/friendly-snippets", { "L3MON4D3/LuaSnip", version = "v2.*" } },
 		version = "1.*",
 		--- @module 'blink.cmp'
 		--- @class blink.cmp.Source
@@ -29,6 +11,17 @@ return {
 			-- C-n/C-p or Up/Down: Select next/previous item
 			-- C-e: Hide menu
 			-- C-k: Toggle signature help (if signature.enabled = true)
+			--
+			completion = {
+				menu = {
+					draw = {
+						columns = {
+							{ "label", "label_description", gap = 1 },
+							{ "kind_icon", "kind" },
+						},
+					},
+				},
+			},
 			keymap = {
 				preset = "enter",
 				["<Tab>"] = { "select_next", "snippet_forward", "fallback" },

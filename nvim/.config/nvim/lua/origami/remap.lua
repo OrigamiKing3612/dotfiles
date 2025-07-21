@@ -97,5 +97,10 @@ vim.keymap.set("n", "<leader>llg", function()
 end)
 
 vim.api.nvim_create_user_command("W", "w", {})
+vim.api.nvim_create_user_command("Wq", "wq", {})
+vim.api.nvim_create_user_command("Wa", "wa", {})
 
-vim.cmd([[cab cc CodeCompanion]])
+-- go
+vim.keymap.set("n", "<leader>scg", function()
+	vim.cmd("!sqlc generate")
+end, { desc = "Run sqlc generate" })

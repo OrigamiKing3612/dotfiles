@@ -15,10 +15,10 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
+vim.opt.undodir = vim.fn.stdpath("config") .. "undodir"
 vim.opt.undofile = true
 
-vim.opt.spellfile = os.getenv("HOME") .. "/.nvim/spell/en.utf-8.add"
+vim.opt.spellfile = vim.fn.stdpath("config") .. "spell/en.utf-8.add"
 vim.opt.spelllang = "en_us"
 vim.opt.spell = false
 
@@ -37,3 +37,7 @@ vim.opt.termguicolors = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = false
+
+vim.g.snipmate_snippets_path = vim.fn.stdpath("config") .. "/lua/snippets/snipmate"
+vim.g.vscode_snippets_path = vim.fn.stdpath("config") .. "/lua/snippets/vscode"
+vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/snippets/lua"

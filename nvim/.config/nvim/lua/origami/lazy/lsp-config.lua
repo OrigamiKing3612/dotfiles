@@ -50,7 +50,7 @@ vim.lsp.config("lua_ls", {
 vim.lsp.enable({ "lua_ls" })
 
 vim.lsp.config("gopls", {
-	filetypes = { "go" },
+	filetypes = { "go", "gomod", "gowork", "gotmpl" },
 	root_markers = { "go.mod" },
 	capabilities = capabilities,
 })
@@ -112,6 +112,10 @@ vim.lsp.config("vtsls", {
 		},
 	},
 	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+	on_attach = function(_, bufnr)
+		local opts = { buffer = bufnr, desc = "Goto Definition" }
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+	end,
 })
 vim.lsp.config("vue_ls", vue_ls_config)
 vim.lsp.enable({ "vtsls", "vue_ls" })
