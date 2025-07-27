@@ -51,7 +51,7 @@
         "format-icons": {
             "default": ["", "", " "]
         },
-        "on-click": "pavucontrol",
+        "on-click": "export GTK_THEME=Adwaita-dark; pavucontrol",
         "interval": 2
     },
     "custom/brightness": {
