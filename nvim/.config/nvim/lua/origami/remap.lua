@@ -104,3 +104,6 @@ vim.api.nvim_create_user_command("Wa", "wa", {})
 vim.keymap.set("n", "<leader>scg", function()
 	vim.cmd("!sqlc generate")
 end, { desc = "Run sqlc generate" })
+
+-- lsp
+vim.keymap.set("n", "<CR>", vim.diagnostic.open_float, { desc = "Show diagnostic message" })
