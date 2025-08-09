@@ -107,3 +107,8 @@ end, { desc = "Run sqlc generate" })
 
 -- lsp
 vim.keymap.set("n", "<CR>", vim.diagnostic.open_float, { desc = "Show diagnostic message" })
+
+vim.keymap.set("n", "L", "<cmd>bprev<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "K", "<cmd>bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "H", "<cmd>bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "J", "<cmd>bprev<CR>", { desc = "Previous buffer" })
