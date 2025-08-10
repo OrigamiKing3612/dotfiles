@@ -1,8 +1,23 @@
 return {
-	{ "github/copilot.vim" },
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
+		end,
+	},
+	{ "giuxtaposition/blink-cmp-copilot" },
 	{
 		"saghen/blink.cmp",
-		dependencies = { "rafamadriz/friendly-snippets", { "L3MON4D3/LuaSnip", version = "v2.*" } },
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			{ "L3MON4D3/LuaSnip", version = "v2.*" },
+			"giuxtaposition/blink-cmp-copilot",
+		},
 		version = "1.*",
 		--- @module 'blink.cmp'
 		--- @class blink.cmp.Source
@@ -11,7 +26,6 @@ return {
 			-- C-n/C-p or Up/Down: Select next/previous item
 			-- C-e: Hide menu
 			-- C-k: Toggle signature help (if signature.enabled = true)
-			--
 			completion = {
 				menu = {
 					draw = {
@@ -32,13 +46,63 @@ return {
 				enabled = true,
 			},
 			sources = {
-				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+				default = { "lazydev", "lsp", "path", "snippets", "buffer", "copilot" },
 				providers = {
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
 						score_offset = 100,
 					},
+					copilot = {
+						name = "copilot",
+						module = "blink-cmp-copilot",
+						score_offset = 100,
+						async = true,
+						transform_items = function(_, items)
+							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+							local kind_idx = #CompletionItemKind + 1
+							CompletionItemKind[kind_idx] = "Copilot"
+							for _, item in ipairs(items) do
+								item.kind = kind_idx
+							end
+							return items
+						end,
+					},
+				},
+			},
+			appearance = {
+				kind_icons = {
+					Copilot = "",
+					Text = "󰉿",
+					Method = "󰊕",
+					Function = "󰊕",
+					Constructor = "󰒓",
+
+					Field = "󰜢",
+					Variable = "󰆦",
+					Property = "󰖷",
+
+					Class = "󱡠",
+					Interface = "󱡠",
+					Struct = "󱡠",
+					Module = "󰅩",
+
+					Unit = "󰪚",
+					Value = "󰦨",
+					Enum = "󰦨",
+					EnumMember = "󰦨",
+
+					Keyword = "󰻾",
+					Constant = "󰏿",
+
+					Snippet = "󱄽",
+					Color = "󰏘",
+					File = "󰈔",
+					Reference = "󰬲",
+					Folder = "󰉋",
+					Event = "󱐋",
+					Operator = "󰪚",
+					TypeParameter = "󰬛",
 				},
 			},
 		},
@@ -46,6 +110,13 @@ return {
 	{
 		"folke/lazydev.nvim",
 		ft = "lua",
-		opts = {},
+		opts = {
+			library = {
+				"lazy.nvim",
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				"LazyVim",
+				"LazyDev",
+			},
+		},
 	},
 }

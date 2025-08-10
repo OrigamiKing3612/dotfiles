@@ -83,6 +83,7 @@ alias ls='ls --color=always'
 alias clean='~/clean.sh'
 alias vim='nvim'
 alias :q='exit'
+alias cdtmp='cd $(mktemp -d)'
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
@@ -90,6 +91,9 @@ alias :q='exit'
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
+
+if [ -r ~/.zshrc ]; then echo -e '\nexport GPG_TTY=$(tty)' >> ~/.zshrc; \
+  else echo -e '\nexport GPG_TTY=$(tty)' >> ~/.zprofile; fi
 
 export PATH="$PATH:$CARGO_HOME/bin:$HOME/go/bin"
 
@@ -102,3 +106,5 @@ fi
 if type zoxide &>/dev/null; then
     eval "$(zoxide init --cmd cd zsh)"
 fi
+
+export GPG_TTY=$(tty)
