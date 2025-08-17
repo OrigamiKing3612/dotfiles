@@ -6,6 +6,8 @@ return {
 		"rafamadriz/friendly-snippets",
 	},
 	build = "make install_jsregexp",
+	--- @module 'luasnip'
+	--- @class luasnip.config
 	opts = {
 		history = true,
 		updateevents = "TextChanged,TextChangedI",

@@ -90,10 +90,10 @@ vim.keymap.set({ "v", "x" }, "<leader>sc", "<cmd>'<,'>Silicon<CR>")
 
 -- snacks
 vim.keymap.set("n", "<leader>lg", function()
-	Snacks.lazygit()
+	require("snacks").lazygit()
 end)
 vim.keymap.set("n", "<leader>llg", function()
-	Snacks.lazygit.log()
+	require("snacks").lazygit.log()
 end)
 
 vim.api.nvim_create_user_command("W", "w", {})

@@ -1,6 +1,8 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	requires = { "nvim-tree/nvim-web-devicons" },
+	--- @module 'lualine.nvim'
+	--- @class lualine.nvim.config
 	opts = function()
 		local lazy_status = require("lazy.status")
 		local trouble = require("trouble")
