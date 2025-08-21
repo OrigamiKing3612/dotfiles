@@ -1,4 +1,6 @@
-#/bin/bash
+#!/bin/bash
+
+set -euo pipefail  # Exit on error, undefined vars, pipe failures
 
 if [ "$(uname)" != "Linux" ]; then
     echo "This script is intended for Linux only."
@@ -21,6 +23,7 @@ fi
 
 # ---------- Installing Dependencies ----------
 
+echo "Installing system packages..."
 if [[ "$(uname -r)" == *ARCH* ]]; then
     sudo pacman -Syu --noconfirm
     sudo pacman -S --noconfirm curl git tmux wget stow ripgrep yazi lazygit base-devel neovim neofetch gh bat zoxide
@@ -31,12 +34,21 @@ fi
 if ! ls README* >/dev/null 2>&1; then
     echo "Cloning repository..."
     git clone "$REPO_URL" "$CLONE_DIR"
+    cd "$CLONE_DIR"
+else
+    echo "Repository already exists, updating..."
+    cd "$HOME/dotfiles"
+    git pull
 fi
 
 touch ~/.hushlogin
 
-cd "$HOME/dotfiles"
-rm ~/.bashrc
+echo "Setting up dotfiles with stow..."
+# Backup existing .bashrc if it exists and isn't a symlink
+if [ -f ~/.bashrc ] && [ ! -L ~/.bashrc ]; then
+    mv ~/.bashrc ~/.bashrc.backup.$(date +%Y%m%d_%H%M%S)
+fi
+
 stow bash bat clean lazygit nvim starship-server tmux vim yazi silicon
 
 # ---------- Installing Stuff ----------
@@ -54,23 +66,39 @@ if [[ "$(uname -r)" != *ARCH* ]]; then
 fi
 
 # nvim
-if [[ "$(uname -r)" != "*ARCH*" ]]; then
+if [[ "$(uname -r)" != *ARCH* ]]; then
+    echo "Installing Neovim for architecture: $PROCESSOR (using nvim-linux${NVIM_ARCH}.tar.gz)"
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux${NVIM_ARCH}.tar.gz
-    sudo rm -rf /opt/nvim
-    sudo tar -C /opt -xzf nvim-linux64.tar.gz
+    sudo rm -rf /opt/nvim-linux${NVIM_ARCH}
+    sudo tar -C /opt -xzf nvim-linux${NVIM_ARCH}.tar.gz
     rm nvim-linux${NVIM_ARCH}.tar.gz
+    
+    # Add nvim to PATH if not already there
+    if ! command -v nvim &> /dev/null; then
+        echo "export PATH=\"/opt/nvim-linux${NVIM_ARCH}/bin:\$PATH\"" >> ~/.bashrc
+    fi
 fi
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-source ~/.bashrc
-nvm install 22
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+# Source NVM for current session
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Install and use LTS Node.js
+nvm install --lts
+nvm use --lts
 npm install -g tree-sitter-cli
 
 # starship
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 # tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+    echo "tmux plugin manager already installed"
+fi
 
 # vim (don't install beucase different versions)
 # curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
