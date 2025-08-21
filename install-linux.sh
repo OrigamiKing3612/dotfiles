@@ -58,11 +58,16 @@ bat cache --build
 
 # lazygit
 if [[ "$(uname -r)" != *ARCH* ]]; then
-    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": *"v\K[^"]*')
-    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-    tar xf lazygit.tar.gz lazygit
-    sudo install lazygit -D -t /usr/local/bin/
-    rm lazygit.tar.gz
+    if ! command -v lazygit &> /dev/null; then
+        echo "Installing lazygit..."
+        LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": *"v\K[^"]*')
+        curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+        tar xf lazygit.tar.gz lazygit
+        sudo install lazygit -D -t /usr/local/bin/
+        rm lazygit lazygit.tar.gz
+    else
+        echo "lazygit already installed, skipping..."
+    fi
 fi
 
 # nvim
@@ -79,19 +84,32 @@ if [[ "$(uname -r)" != *ARCH* ]]; then
     fi
 fi
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+# Install NVM if not already installed
+if [ ! -d "$HOME/.nvm" ]; then
+    echo "Installing NVM..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+else
+    echo "NVM already installed, skipping..."
+fi
+
 # Source NVM for current session
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Install and use LTS Node.js
+echo "Installing Node.js LTS..."
 nvm install --lts
 nvm use --lts
 npm install -g tree-sitter-cli
 
 # starship
-curl -sS https://starship.rs/install.sh | sh -s -- -y
+if ! command -v starship &> /dev/null; then
+    echo "Installing Starship prompt..."
+    curl -sS https://starship.rs/install.sh | sh -s -- -y
+else
+    echo "Starship already installed, skipping..."
+fi
 
 # tmux
 if [ ! -d ~/.tmux/plugins/tpm ]; then
@@ -105,4 +123,13 @@ fi
 # vi +PlugInstall +qall
 
 source ~/.bashrc
+echo "================================================"
+echo "✅ Dotfiles setup completed successfully!"
+echo "================================================"
+echo "Next steps:"
+echo "1. Restart your terminal or run 'source ~/.bashrc'"
+echo "2. Open tmux and press Ctrl-s + I to install plugins"
+echo "3. Open nvim and run ':Lazy sync' to install plugins"
+echo "4. Run 'neofetch' to see system info"
+echo "================================================"
 neofetch
