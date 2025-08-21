@@ -1,6 +1,6 @@
 return {
 	"folke/snacks.nvim",
-	proiority = 1001,
+	priority = 1001,
 	opts = {
 		image = {},
 		lazygit = {

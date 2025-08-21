@@ -2,7 +2,30 @@
 
 These are my dotfiles. I use `stow` to manage the symlinks.
 
-# Setup
+## Quick Setup
+
+### Linux
+Run the automated install script:
+```bash
+curl -o- https://raw.githubusercontent.com/OrigamiKing3612/dotfiles/master/install-linux.sh | bash
+```
+
+Or manually clone and setup:
+```bash
+git clone https://github.com/OrigamiKing3612/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./install-linux.sh
+```
+
+### macOS
+```bash
+brew install git tmux wget stow ripgrep neovim
+git clone https://github.com/OrigamiKing3612/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+stow bash ghostty nvim starship tmux vim yazi silicon
+```
+
+# Manual Setup
 Run `stow` on the folders if this folder. (ex: `stow bash ghostty`)
 ## Mac
 `brew install git tmux wget stow ripgrep`
@@ -48,9 +71,9 @@ sudo apt-get install ripgrep
 
 ### Install tree-sitter-cli
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 source ~/.bashrc
-nvm install 22
+nvm install --lts
 npm install -g tree-sitter-cli
 ```
 ## silicon
@@ -81,3 +104,23 @@ vim +PlugInstall +qall
 ## zsh
 `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting`
 `git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
+
+# Troubleshooting
+
+## Neovim Issues
+- If Neovim isn't found after installation, restart your terminal or run `source ~/.bashrc`
+- For LSP issues, run `:checkhealth` in Neovim to diagnose problems
+- If plugins fail to load, try `:Lazy sync` to update them
+
+## Install Script Issues
+- If you get permission errors, make sure you have sudo access
+- The script backs up your existing `.bashrc` before replacing it
+- For ARM64 systems, ensure you have the correct architecture detection
+
+## Tmux Plugin Issues
+- After first tmux start, press `prefix + I` (Ctrl-s + I) to install plugins
+- If tmux doesn't start with the theme, run `tmux source ~/.tmux.conf`
+
+## Stow Conflicts
+- If stow reports conflicts, move or remove the conflicting files manually
+- Use `stow -D <package>` to unstow a package if needed
