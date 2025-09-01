@@ -5,7 +5,6 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "isort", "black" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			javascript = { "eslint_d", stop_after_first = true },
 			-- java = { "ast-grep" },
@@ -14,7 +13,8 @@ return {
 			bash = { "shfmt" },
 			yaml = { "yamlfmt" },
 			go = { "goimports", "gopls" },
-			sql = { "sql_formatter" },
+			scss = { "cssls" },
+			css = { "cssls" },
 			-- vue = { "lsp" },
 			-- typescript = { "eslint_d", stop_after_first = true },
 		},

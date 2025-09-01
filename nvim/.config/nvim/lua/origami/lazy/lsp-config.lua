@@ -138,6 +138,13 @@ vim.lsp.config("bashls", {
 })
 vim.lsp.enable({ "bashls" })
 
+vim.lsp.config("cssls", {
+	filetypes = { "css", "scss", "less" },
+	capabilities = capabilities,
+})
+
+vim.lsp.enable({ "cssls" })
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		local opts = { buffer = event.buf }

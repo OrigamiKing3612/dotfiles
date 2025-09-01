@@ -14,7 +14,7 @@ return {
 		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>")
 
 		local function on_move(data)
-			Snacks.rename.on_rename_file(data.source, data.destination)
+			require("snacks").rename.on_rename_file(data.source, data.destination)
 		end
 		local events = require("neo-tree.events")
 		opts.event_handlers = opts.event_handlers or {}
