@@ -15,6 +15,10 @@ return {
 			go = { "goimports", "gopls" },
 			scss = { "cssls" },
 			css = { "cssls" },
+			templ = {
+				"templ",
+				"injected",
+			},
 			-- vue = { "lsp" },
 			-- typescript = { "eslint_d", stop_after_first = true },
 		},

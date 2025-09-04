@@ -145,6 +145,13 @@ vim.lsp.config("cssls", {
 
 vim.lsp.enable({ "cssls" })
 
+vim.lsp.config("templ", {
+	filetypes = { "templ" },
+	capabilities = capabilities,
+})
+
+vim.lsp.enable({ "templ" })
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		local opts = { buffer = event.buf }
