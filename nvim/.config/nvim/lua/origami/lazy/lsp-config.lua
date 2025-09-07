@@ -1,46 +1,40 @@
 local vue_language_server_path = vim.fn.stdpath("data")
 	.. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
-
+local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
 local vue_plugin = {
 	name = "@vue/typescript-plugin",
 	location = vue_language_server_path,
 	languages = { "vue" },
 	configNamespace = "typescript",
 }
-
-local vue_ls_config = {
-	filetypes = { "vue" },
-	root_markers = { "package.json", "tsconfig.json" },
-	on_init = function(client)
-		client.handlers["tsserver/request"] = function(_, result, context)
-			local clients = vim.lsp.get_clients({ bufnr = context.bufnr, name = "vtsls" })
-			if #clients == 0 then
-				vim.notify(
-					"Could not find `vtsls` lsp client, `vue_ls` would not work without it.",
-					vim.log.levels.ERROR
-				)
-				return
-			end
-			local ts_client = clients[1]
-			---@diagnostic disable-next-line: deprecated
-			local param = unpack(result)
-			---@diagnostic disable-next-line: deprecated
-			local id, command, payload = unpack(param)
-			ts_client:exec_cmd({
-				title = "vue_request_forward",
-				command = "typescript.tsserverRequest",
-				arguments = {
-					command,
-					payload,
+local vtsls_config = {
+	settings = {
+		vtsls = {
+			tsserver = {
+				globalPlugins = {
+					vue_plugin,
 				},
-			}, { bufnr = context.bufnr }, function(_, r)
-				local response_data = { { id, r.body } }
-				---@diagnostic disable-next-line: param-type-mismatch
-				client:notify("tsserver/response", response_data)
-			end)
-		end
-	end,
+			},
+		},
+	},
+	filetypes = tsserver_filetypes,
 }
+
+local ts_ls_config = {
+	init_options = {
+		plugins = {
+			vue_plugin,
+		},
+	},
+	filetypes = tsserver_filetypes,
+}
+
+local vue_ls_config = {}
+
+vim.lsp.config("vtsls", vtsls_config)
+vim.lsp.config("vue_ls", vue_ls_config)
+vim.lsp.config("ts_ls", ts_ls_config)
+vim.lsp.enable({ "vtsls", "vue_ls" })
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 vim.lsp.config("lua_ls", {
@@ -100,25 +94,6 @@ vim.lsp.config("jsonls", {
 	capabilities = capabilities,
 })
 vim.lsp.enable({ "jsonls" })
-
-vim.lsp.config("vtsls", {
-	settings = {
-		vtsls = {
-			tsserver = {
-				globalPlugins = {
-					vue_plugin,
-				},
-			},
-		},
-	},
-	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-	on_attach = function(_, bufnr)
-		local opts = { buffer = bufnr, desc = "Goto Definition" }
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-	end,
-})
-vim.lsp.config("vue_ls", vue_ls_config)
-vim.lsp.enable({ "vtsls", "vue_ls" })
 
 vim.lsp.config("sourcekit", {
 	filetypes = { "swift", "objective-c", "objective-cpp" },
