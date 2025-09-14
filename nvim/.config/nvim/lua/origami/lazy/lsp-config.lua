@@ -40,6 +40,13 @@ local capabilities = require("blink.cmp").get_lsp_capabilities()
 vim.lsp.config("lua_ls", {
 	filetypes = { "lua" },
 	capabilities = capabilities,
+	settings = {
+		Lua = {
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+		},
+	},
 })
 vim.lsp.enable({ "lua_ls" })
 
@@ -149,10 +156,8 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"ts_ls",
-				"rust_analyzer",
 				-- "volar",
 				"pyright",
-				"jdtls",
 				"yamlls",
 				"dockerls",
 				"docker_compose_language_service",

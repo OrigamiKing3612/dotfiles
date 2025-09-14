@@ -14,6 +14,7 @@ return {
 			"typescriptreact",
 			"vue",
 			"xml",
+			"svg",
 		},
 	},
 }

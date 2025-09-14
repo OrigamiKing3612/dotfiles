@@ -35,9 +35,6 @@ end)
 -- Renames the word that is under the cursor
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
--- switch windows
-vim.keymap.set("n", "<leader>pv", "<nop>")
-
 -- tabs
 vim.keymap.set("n", "<leader>tt", ":tabnew<CR>:Neotree filesystem reveal left<CR>")
 vim.keymap.set("n", "<leader>tn", ":tabnext<CR>")
@@ -62,10 +59,10 @@ vim.api.nvim_set_keymap("v", "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr
 
 -- spelling
 vim.keymap.set("n", "z=", require("telescope.builtin").spell_suggest)
--- vim.keymap.set("n", "zg", "zg") -- add word to dictionary
--- vim.keymap.set("n", "zw", "zw") -- remove word from dictionary
--- vim.keymap.set("n", "]s", "]s") -- move to next spelling errors
--- vim.keymap.set("n", "[s", "[s") -- move to previous spelling errors
+vim.keymap.set("n", "zg", "zg") -- add word to dictionary
+vim.keymap.set("n", "zw", "zw") -- remove word from dictionary
+vim.keymap.set("n", "]s", "]s") -- move to next spelling errors
+vim.keymap.set("n", "[s", "[s") -- move to previous spelling errors
 
 -- trouble
 vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>", { silent = true, noremap = true })
@@ -106,7 +103,7 @@ vim.keymap.set("n", "<leader>scg", function()
 end, { desc = "Run sqlc generate" })
 
 -- lsp
-vim.keymap.set("n", "<CR>", vim.diagnostic.open_float, { desc = "Show diagnostic message" })
+vim.keymap.set("n", "<leader><CR>", vim.diagnostic.open_float, { desc = "Show diagnostic message" })
 
-vim.keymap.set("n", "L", "<cmd>bprev<CR>", { desc = "Previous buffer" })
-vim.keymap.set("n", "H", "<cmd>bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "H", "<cmd>bprev<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "L", "<cmd>bnext<CR>", { desc = "Next buffer" })

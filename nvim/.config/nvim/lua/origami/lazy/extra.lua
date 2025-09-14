@@ -5,8 +5,12 @@ return {
 		"elkowar/yuck.vim",
 		ft = "yuck",
 	},
+	-- {
+	-- 	"rushjs1/nuxt-goto.nvim",
+	-- 	ft = "vue",
+	-- },
 	{
-		"rushjs1/nuxt-goto.nvim",
-		ft = "vue",
+		"chrisgrieser/nvim-spider",
+		lazy = true,
 	},
 }
