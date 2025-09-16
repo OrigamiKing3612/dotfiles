@@ -54,6 +54,12 @@ vim.lsp.config("gopls", {
 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
 	root_markers = { "go.mod" },
 	capabilities = capabilities,
+	on_attach = function(client, bufnr)
+		if client.name == "gopls" then
+			local opts = { noremap = true, silent = true, buffer = bufnr, desc = "Run sqlc generate" }
+			vim.keymap.set("n", "<leader>scg", "<cmd>!sqlc generate<CR>", opts)
+		end
+	end,
 })
 vim.lsp.enable({ "gopls" })
 

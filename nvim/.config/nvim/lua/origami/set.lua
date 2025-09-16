@@ -43,3 +43,4 @@ vim.g.vscode_snippets_path = vim.fn.stdpath("config") .. "/lua/snippets/vscode"
 vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/snippets/lua"
 
 vim.o.winborder = "rounded"
+vim.o.winblend = 20

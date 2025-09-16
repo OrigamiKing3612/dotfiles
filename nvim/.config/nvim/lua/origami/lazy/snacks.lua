@@ -1,8 +1,9 @@
 return {
 	"folke/snacks.nvim",
-	proiority = 1001,
+	priority = 1001,
+	lazy = false,
 	opts = {
-		image = {},
+		-- image = {},
 		lazygit = {
 			configure = false,
 			win = {
@@ -24,6 +25,36 @@ return {
 					end
 				end)
 			end,
+		},
+		git = {
+			enable = true,
+		},
+		words = {
+			enable = true,
+		},
+	},
+	keys = {
+		{
+			"<leader>lg",
+			function()
+				Snacks.lazygit()
+			end,
+			desc = "Open Lazygit",
+		},
+		{
+			"<leader>llg",
+			function()
+				Snacks.lazygit.log()
+			end,
+			desc = "Open Lazygit Log",
+		},
+		{
+			"<leader>K",
+			function()
+				Snacks.image.hover()
+			end,
+			desc = "Hover Image",
+			mode = { "n" },
 		},
 	},
 }
