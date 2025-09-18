@@ -4,6 +4,7 @@ return {
 	lazy = false,
 	opts = {
 		-- image = {},
+		picker = {},
 		input = {
 			enable = true,
 			relative = "cursor",
@@ -60,6 +61,30 @@ return {
 				Snacks.image.hover()
 			end,
 			desc = "Hover Image",
+			mode = { "n" },
+		},
+		{
+			"<leader>ff",
+			function()
+				Snacks.picker.smart()
+			end,
+			desc = "Smart Find Files",
+			mode = { "n" },
+		},
+		{
+			"<leader>fb",
+			function()
+				Snacks.picker.buffers()
+			end,
+			desc = "Buffers",
+			mode = { "n" },
+		},
+		{
+			"<leader>fg",
+			function()
+				Snacks.picker.grep()
+			end,
+			desc = "Grep",
 			mode = { "n" },
 		},
 	},
