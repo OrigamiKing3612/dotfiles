@@ -9,7 +9,6 @@ return {
 		opts = function()
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
-			local trouble_telescope = require("trouble.sources.telescope")
 
 			telescope.setup({
 				defaults = {
@@ -31,12 +30,10 @@ return {
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-j>"] = actions.move_selection_next,
 						["<C-q>"] = actions.send_selected_to_qflist,
-						["<C-t>"] = trouble_telescope.open,
 					},
 				},
 			})
 			telescope.load_extension("fzy_native")
-			telescope.load_extension("fidget")
 
 			local builtin = require("telescope.builtin")
 

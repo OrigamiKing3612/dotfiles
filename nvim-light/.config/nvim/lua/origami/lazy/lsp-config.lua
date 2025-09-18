@@ -1,30 +1,7 @@
-local capabilities = require("blink.cmp").get_lsp_capabilities()
-vim.lsp.config("yamlls", {
-	filetypes = { "yaml", "yml" },
-	capabilities = capabilities,
-})
 vim.lsp.enable({ "yamlls" })
-
-vim.lsp.config("dockerls", {
-	capabilities = capabilities,
-})
 vim.lsp.enable({ "dockerls" })
-
-vim.lsp.config("docker_compose_language_service", {
-	capabilities = capabilities,
-})
 vim.lsp.enable({ "docker_compose_language_service" })
-
-vim.lsp.config("jsonls", {
-	filetypes = { "json", "jsonc" },
-	capabilities = capabilities,
-})
 vim.lsp.enable({ "jsonls" })
-
-vim.lsp.config("bashls", {
-	filetypes = { "sh", "bash" },
-	capabilities = capabilities,
-})
 vim.lsp.enable({ "bashls" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
