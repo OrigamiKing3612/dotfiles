@@ -4,6 +4,7 @@ return {
 		notification = {
 			window = {
 				winblend = 0,
+				max_width = 0,
 			},
 		},
 	},
