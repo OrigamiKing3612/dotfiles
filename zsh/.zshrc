@@ -104,4 +104,7 @@ fi
 if type zoxide &>/dev/null; then
     eval "$(zoxide init --cmd cd zsh)"
 fi
+if type say &>/dev/null; then
+    alias say="say -r 140 -v \"Evan (Enhanced)\""
+fi
 

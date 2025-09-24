@@ -17,4 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("origami.lazy", {
 	checker = { enabled = true, notify = false },
 	change_detection = { notify = false },
+	install = { colorscheme = { "catppuccin" } },
+	ui = {
+		border = "rounded",
+		backdrop = 60,
+	},
 })

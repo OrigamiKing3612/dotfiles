@@ -12,7 +12,7 @@ return {
 		},
 
 		on_attach = function(bufnr)
-			local gs = package.loaded.gitsigns
+			local gs = require("gitsigns")
 
 			local function opts(desc)
 				return { buffer = bufnr, desc = desc }

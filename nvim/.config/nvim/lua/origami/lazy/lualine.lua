@@ -5,8 +5,7 @@ return {
 	--- @class lualine.nvim.config
 	opts = function()
 		local lazy_status = require("lazy.status")
-		local trouble = require("trouble")
-		local symbols = trouble.statusline({
+		local symbols = require("trouble").statusline({
 			mode = "lsp_document_symbols",
 			groups = {},
 			title = false,
@@ -20,7 +19,7 @@ return {
 		return {
 			options = {
 				icons_enabled = true,
-				theme = require("themery").getCurrentTheme().lualine,
+				theme = "auto",
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
 			},
@@ -35,7 +34,7 @@ return {
 					{
 						lazy_status.updates,
 						cond = lazy_status.has_updates,
-						color = { fg = "#ff9e64" },
+						color = { fg = "#f9e2af" },
 					},
 					{ "filetype" },
 				},

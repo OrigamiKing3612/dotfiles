@@ -8,10 +8,6 @@ local autocmd = vim.api.nvim_create_autocmd
 local OrigamiGroup = augroup("Origami", {})
 local yank_group = augroup("HighlightYank", {})
 
-function R(name)
-	require("plenary.reload").reload_module(name)
-end
-
 autocmd("TextYankPost", {
 	group = yank_group,
 	pattern = "*",
