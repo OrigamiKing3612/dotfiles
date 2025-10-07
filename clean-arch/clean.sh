@@ -6,18 +6,18 @@ rm -rf /home/origami/.cache/thumbnails/*
 echo ""
 
 echo "Sync Database"
-pacman -Syy
+pacman -Syyu
 
 echo "remove unused packages"
 pacman -Rns
 
 orphans=$(pacman -Qdtq)
 if [ -n "$orphans" ]; then
-  echo "remove orphaned packages"
-  sudo pacman -Rns $orphans --noconfirm
+    echo "remove orphaned packages"
+    sudo pacman -Rns $orphans --noconfirm
 fi
 
-if command -v yay &> /dev/null; then
+if command -v yay &>/dev/null; then
     echo "clean aur packges"
     yay -Sc --noconfirm
 fi
@@ -33,4 +33,3 @@ if type docker &>/dev/null; then
 fi
 
 echo "Done!!"
-

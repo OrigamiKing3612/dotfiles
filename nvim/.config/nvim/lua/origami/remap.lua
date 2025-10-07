@@ -16,9 +16,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- jump to the first word in a line
-vim.keymap.set("n", "9", "0w")
-
 -- in Visual Line mode, copy and paste a line
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("v", "p", '"_dP')

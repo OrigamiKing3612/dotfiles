@@ -140,6 +140,8 @@ vim.lsp.config("templ", {
 
 vim.lsp.enable({ "templ" })
 
+vim.lsp.enable("clangd")
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		local opts = { buffer = event.buf }
