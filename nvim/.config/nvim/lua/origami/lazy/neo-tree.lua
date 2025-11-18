@@ -78,6 +78,7 @@ return {
 				persist_state = true,
 				mappings = {
 					["<bs>"] = "nop",
+					["."] = "nop",
 				},
 			},
 		}

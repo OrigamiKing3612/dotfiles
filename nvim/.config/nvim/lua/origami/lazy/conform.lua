@@ -7,9 +7,7 @@ return {
 			lua = { "stylua" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			javascript = { "eslint_d", stop_after_first = true },
-			-- java = { "ast-grep" },
 			swift = { "swiftformat" },
-			-- html = { "ast-grep" },
 			bash = { "shfmt" },
 			yaml = { "yamlfmt" },
 			go = { "goimports", "gopls" },
@@ -19,8 +17,6 @@ return {
 				"templ",
 				"injected",
 			},
-			-- vue = { "lsp" },
-			-- typescript = { "eslint_d", stop_after_first = true },
 		},
 		formatters = {
 			lsp = {
