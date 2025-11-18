@@ -50,3 +50,6 @@ vim.keymap.set("n", "<leader><CR>", vim.diagnostic.open_float, { desc = "Show di
 
 vim.keymap.set("n", "H", "<cmd>bprev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "L", "<cmd>bnext<CR>", { desc = "Next buffer" })
+
+vim.keymap.set("n", "<leader>qq", "<cmd>:q<CR>")
+vim.keymap.set("n", "<leader>qqa", "<cmd>:qa<CR>")

@@ -57,13 +57,13 @@ fi
 if [[ "$(uname -r)" != "*ARCH*" ]]; then
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux${NVIM_ARCH}.tar.gz
     sudo rm -rf /opt/nvim
-    sudo tar -C /opt -xzf nvim-linux64.tar.gz
+    sudo tar -C /opt -xzf nvim-linux${NVIM_ARCH}.tar.gz
     rm nvim-linux${NVIM_ARCH}.tar.gz
 fi
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 source ~/.bashrc
-nvm install 22
+nvm install 25
 npm install -g tree-sitter-cli
 
 # starship

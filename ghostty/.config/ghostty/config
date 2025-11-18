@@ -5,6 +5,7 @@ background-blur-radius = 60
 macos-titlebar-style = "tabs"
 mouse-hide-while-typing = "true"
 
+shell-integration = zsh
 shell-integration-features = sudo
 
 # quick-terminal-position = top
