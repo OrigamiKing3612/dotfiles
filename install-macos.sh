@@ -35,18 +35,7 @@ bat cache --build
 nvm install 25
 npm install -g tree-sitter-cli
 
-# silicon
-brew install silicon
-
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# vim
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vi +PlugInstall +qall
-
-# zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
 source ~/.zshrc
