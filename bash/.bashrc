@@ -23,9 +23,9 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 
 export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
---color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
---color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+--color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#89B4FA \
+--color=fg:#CDD6F4,header:#89B4FA,info:#89B4FA,pointer:#89B4FA \
+--color=marker:#89B4FA,fg+:#CDD6F4,prompt:#89B4FA,hl+:#89B4FA \
 --color=selected-bg:#45475A \
 --color=border:#6C7086,label:#CDD6F4"
 
@@ -101,9 +101,7 @@ fi
 alias clean='sudo ~/clean.sh'
 alias pbcopy='xsel --input --clipboard'
 alias pbpaste='xsel --output --clipboard'
-if command -v vi &>/dev/null; then
-    alias vim="vi"
-fi
+
 # Silicon doesn't seem to support ~ or $HOME
 if type silicon &>/dev/null; then
     alias silicon="silicon --theme=\"~/dotfiles/bat/.config/bat/themes/Catppuccin Mocha.tmTheme\""
@@ -114,6 +112,5 @@ export JAVA_HOME=/usr/lib/jvm/jdk-21-oracle-x64/
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-export PATH="$PATH:/opt/nvim/bin"
-export PATH="$PATH:/opt/swift/bin"
+export PATH="$PATH:/opt/nvim/bin:/opt/swift/bin"
 eval "$(starship init bash)"

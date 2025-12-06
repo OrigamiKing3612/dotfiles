@@ -1,0 +1,15 @@
+[[session]]
+name = "Downloads"
+path = "~/Downloads"
+
+[[session]]
+name = "Developer"
+path = "~/Developer"
+
+[[session]]
+name = "Desktop"
+path = "~/Desktop"
+
+[[session]]
+name = "Desktop"
+path = "~/Desktop"

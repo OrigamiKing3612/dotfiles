@@ -11,7 +11,7 @@ if ! type brew &>/dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-brew install git tmux wget stow ripgrep bat fzf zsh nvm starship neovim lazygit zoxide
+brew install git
 
 REPO_URL="https://github.com/OrigamiKing3612/dotfiles.git"
 CLONE_DIR="$HOME/dotfiles"
@@ -22,18 +22,17 @@ if ! ls README* >/dev/null 2>&1; then
 fi
 cd ~/dotfiles
 
+brew bundle --file=./Brewfile
+
 # Install dotfiles
-stow zsh bat clean lazygit nvim starship tmux vim
+stow bat eza ghostty git kanata barabiner lazygit npm nushell nvim raycast sesh silicon starship tmux vim yazi zsh
 source ~/.zshrc
 
 # bat
 bat cache --build
 
-# ghostty
-brew install --cask ghostty
-
 # nvim
-nvm install 22
+nvm install 25
 npm install -g tree-sitter-cli
 
 # silicon
