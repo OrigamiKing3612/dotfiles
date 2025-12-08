@@ -1,6 +1,6 @@
 config-version = 2
 
-persistent-workspaces = []
+persistent-workspaces = ["1", "2"]
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -34,7 +34,6 @@ default-root-container-layout = 'tiles'
     alt-shift-k = 'move down'
     alt-shift-l = 'move up'
 
-    # Consider using 'join-with' command as a 'split' replacement if you want to enable normalizations
     alt-ctrl-h = 'join-with right'
     alt-ctrl-v = 'join-with down'
 
@@ -47,6 +46,11 @@ default-root-container-layout = 'tiles'
     alt-q = 'close'
 
     alt-ctrl-f = 'layout floating tiling'
+
+    alt-p = 'workspace prev'
+    alt-n = 'workspace next'
+
+    alt-space = 'workspace-back-and-forth'
 
     alt-shift-semicolon = 'mode service'
     # alt-shift-enter = 'mode apps'
@@ -122,6 +126,10 @@ default-root-container-layout = 'tiles'
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'finder'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-name-regex-substring = 'messages'
     run = 'layout floating'
 
 [workspace-to-monitor-force-assignment]
