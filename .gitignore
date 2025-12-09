@@ -1,3 +1,4 @@
 .idea
 i3/.config/i3/start-i3.sh
 nushell/.config/nushell/history.txt
+sketchybar/.config/sketchybar/helpers/menus/bin

@@ -10,12 +10,16 @@ on-focus-changed = "move-mouse window-lazy-center"
 
 default-root-container-layout = 'tiles'
 
+exec-on-workspace-change = ['/bin/bash', '-c',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+]
+
 [gaps]
     inner.horizontal = 5
     inner.vertical =   5
     outer.left =       0
     outer.bottom =     0
-    outer.top =        0
+    outer.top =        35
     outer.right =      0
 
 [key-mapping]
@@ -122,6 +126,9 @@ default-root-container-layout = 'tiles'
     esc = ['reload-config', 'mode main']
     r = ['flatten-workspace-tree', 'mode main'] # reset layout
     f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+
+    s = ['exec-and-forget sketchybar --bar hidden=toggle']
+
     backspace = ['close-all-windows-but-current', 'mode main']
 
 [[on-window-detected]]

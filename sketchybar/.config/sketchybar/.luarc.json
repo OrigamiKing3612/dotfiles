@@ -1,0 +1,20 @@
+{
+    "workspace": {
+        "library": [
+            "./"
+        ],
+        "checkThirdParty": false
+    },
+    "diagnostics": {
+        "globals": [
+            "sbar",
+            "colors",
+            "icons",
+            "settings",
+            "app_icons"
+        ]
+    },
+    "runtime": {
+        "version": "LuaJIT"
+    }
+}
