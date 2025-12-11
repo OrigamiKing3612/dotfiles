@@ -19,9 +19,10 @@ esac
 
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | jq -r .tag_name | tr -d '\n')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION:1}_Linux_${LG_ARCH}.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit -D -t /usr/local/bin/
+tar xf lazygit.tar.gz lazygitcli
+sudo install lazygitcli -D -t /usr/local/bin/
 rm lazygit.tar.gz
+rm lazygitcli
 
 cd "$HOME/dotfiles"
 stow lazygit
