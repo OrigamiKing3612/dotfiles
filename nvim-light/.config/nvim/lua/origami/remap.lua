@@ -1,4 +1,3 @@
-vim.keymap.set("n", "<leader>F", ":Themery<CR>")
 vim.keymap.set("n", "<leader>L", ":Lazy<CR>")
 
 -- move lines up and down

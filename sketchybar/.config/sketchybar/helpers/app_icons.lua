@@ -312,4 +312,5 @@ return {
 	["Zulip"] = ":zulip:",
 
 	["Ghostty"] = ":ghostty:",
+	["Helium"] = ":helium:",
 }

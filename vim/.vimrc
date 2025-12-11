@@ -73,10 +73,8 @@ Plug 'tpope/vim-fugitive', {'on': 'G'}
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Chiel92/vim-autoformat'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'github/copilot.vim'
 
 call plug#end()
 colorscheme catppuccin_mocha

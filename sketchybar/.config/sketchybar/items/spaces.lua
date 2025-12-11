@@ -111,12 +111,12 @@ space_window_observer:subscribe("aerospace_workspace_change", function(env)
 		end
 
 		sbar.exec(get_focused_window_command, function(ws_raw, _)
-			sbar.animate("tanh", 10, function()
-				local ws = tonumber(Trim(ws_raw))
-				if not ws or not spaces[ws] then
-					return
-				end
+			local ws = tonumber(Trim(ws_raw))
+			if not ws or not spaces[ws] then
+				return
+			end
 
+			sbar.animate("tanh", 10, function()
 				spaces[ws]:set({
 					label = icon_line,
 				})
