@@ -25,7 +25,7 @@ sudo mkdir -p /opt/nvim
 sudo tar -xzf nvim-linux${NVIM_ARCH}.tar.gz -C /opt/nvim --strip-components=1
 rm nvim-linux${NVIM_ARCH}.tar.gz
 
-VERSION=$(curl -s "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | jq -r .tag_name)
+VERSION=$(printf "%s" $(curl -s "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | jq -r .tag_name))
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/${VERSION}/install.sh | bash
 source ~/.bashrc
 nvm install 25
