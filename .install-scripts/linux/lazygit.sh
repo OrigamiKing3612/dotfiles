@@ -4,14 +4,18 @@ set -e
 
 source ~/dotfiles/.install-scripts/linux/.setup.sh
 
-if [ "$PROCESSOR" = "x86_64" ]; then
+case "$PROCESSOR" in
+x86_64)
     LG_ARCH="x86_64"
-elif [ "$PROCESSOR" = "aarch64" ]; then
+    ;;
+aarch64)
     LG_ARCH="arm64"
-else
+    ;;
+*)
     echo "Unsupported architecture: $PROCESSOR"
     exit 1
-fi
+    ;;
+esac
 
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | jq -r .tag_name)
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_${LG_ARCH}.tar.gz"

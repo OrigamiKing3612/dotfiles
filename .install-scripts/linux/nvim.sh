@@ -4,14 +4,18 @@ set -e
 
 source ~/dotfiles/.install-scripts/linux/.setup.sh
 
-if [ "$PROCESSOR" = "x86_64" ]; then
-    NVIM_ARCH="x86_64"
-elif [ "$PROCESSOR" = "aarch64" ]; then
-    NVIM_ARCH="arm64"
-else
+case "$PROCESSOR" in
+x86_64)
+    LG_ARCH="x86_64"
+    ;;
+aarch64)
+    LG_ARCH="arm64"
+    ;;
+*)
     echo "Unsupported architecture: $PROCESSOR"
     exit 1
-fi
+    ;;
+esac
 
 sudo apt install -y ripgrep fzf
 

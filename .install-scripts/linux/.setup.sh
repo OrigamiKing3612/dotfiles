@@ -22,3 +22,5 @@ for pkg in "${needed[@]}"; do
         sudo apt install -y "$pkg"
     fi
 done
+
+: "${PROCESSOR:=$(uname -m)}"
