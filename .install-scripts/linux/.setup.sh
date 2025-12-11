@@ -12,11 +12,6 @@ if [[ "$(uname -r)" =~ *ARCH* ]]; then
     exit 1
 fi
 
-if [ "$EUID" -ne 0 ]; then
-    echo "Please run with sudo"
-    exit 1
-fi
-
 sudo apt update
 
 needed=(git jq curl wget stow tar)
