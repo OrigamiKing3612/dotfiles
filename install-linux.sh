@@ -11,7 +11,7 @@ PROCESSOR=$(uname -m)
 REPO_URL="https://github.com/OrigamiKing3612/dotfiles.git"
 CLONE_DIR="$HOME/dotfiles"
 if [ "$PROCESSOR" = "x86_64" ]; then
-    NVIM_ARCH="64"
+    NVIM_ARCH="x86_64"
 elif [ "$PROCESSOR" = "aarch64" ]; then
     NVIM_ARCH="arm64"
 else
@@ -71,6 +71,7 @@ curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 # tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.tmux/plugins/catppuccin/tmux
 
 # vim (don't install beucase different versions)
 # curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
