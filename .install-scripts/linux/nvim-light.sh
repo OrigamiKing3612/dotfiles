@@ -6,10 +6,10 @@ source ~/dotfiles/.install-scripts/linux/.setup.sh
 
 case "$PROCESSOR" in
 x86_64)
-    LG_ARCH="x86_64"
+    NVIM_ARCH="x86_64"
     ;;
 aarch64)
-    LG_ARCH="arm64"
+    NVIM_ARCH="arm64"
     ;;
 *)
     echo "Unsupported architecture: $PROCESSOR"
