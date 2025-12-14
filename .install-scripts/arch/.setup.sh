@@ -7,19 +7,19 @@ if [ "$(uname)" != "Linux" ]; then
     exit 1
 fi
 
-if [[ "$(uname -r)" =~ *ARCH* ]]; then
-    echo "This script is intended for Debian-based systems only."
+if ! [[ "$(uname -r)" =~ *ARCH* ]]; then
+    echo "This script is intended for Arch Linux only."
     exit 1
 fi
 
-sudo apt update
+sudo pacman -Syu --noconfirm
 
 needed=(git jq curl wget stow tar)
 
 for pkg in "${needed[@]}"; do
     if ! command -v "$pkg" >/dev/null 2>&1; then
         echo "$pkg not found. Installing..."
-        sudo apt install -y "$pkg"
+        sudo pacman -S "$pkg"
     fi
 done
 

@@ -80,6 +80,12 @@ fpath=(${fpath[@]:#"/opt/homebrew/share/zsh/site-functions"})
 compinit
 zinit cdreplay -q
 
+if type brew &>/dev/null; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    autoload -Uz compinit
+    compinit
+fi
+
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 
 alias ls='ls --color=always'

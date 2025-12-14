@@ -17,50 +17,36 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 [gaps]
     inner.horizontal = 5
     inner.vertical =   5
-    outer.left =       0
-    outer.bottom =     0
-    outer.top =        0
-    outer.right =      0
+    outer.left =       5
+    outer.bottom =     5
+    outer.top =        5
+    outer.right =      5
 
 [key-mapping]
     preset = 'qwerty'
 
 [mode.main.binding]
-    # alt-enter = 'exec-and-forget open -n /Applications/Ghostty.app'
-
-    alt-h = 'focus --boundaries-action wrap-around-the-workspace right'
-    alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
-    alt-k = 'focus --boundaries-action wrap-around-the-workspace up'
-    alt-l = 'focus --boundaries-action wrap-around-the-workspace left'
+    alt-h = 'focus right'
+    alt-j = 'focus down'
+    alt-k = 'focus up'
+    alt-l = 'focus left'
 
     alt-shift-h = 'move right'
     alt-shift-j = 'move left'
     alt-shift-k = 'move down'
     alt-shift-l = 'move up'
 
-    alt-ctrl-h = 'join-with right'
-    alt-ctrl-v = 'join-with down'
+    alt-slash = 'layout tiles horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
 
-    alt-f = 'fullscreen'
-
-    alt-s = 'layout v_accordion'
-    alt-w = 'layout h_accordion'
-    alt-e = 'layout tiles horizontal vertical'
-
-    alt-q = 'close'
-
-    alt-ctrl-f = 'layout floating tiling'
+    alt-w = 'close'
 
     alt-p = 'workspace prev'
     alt-n = 'workspace next'
 
     alt-space = 'workspace-back-and-forth'
 
-    alt-shift-semicolon = 'mode service'
-    # alt-shift-enter = 'mode apps'
-
-    alt-shift-minus = 'resize smart -50'
-    alt-shift-equal = 'resize smart +50'
+    alt-semicolon = 'mode service'
 
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
@@ -73,7 +59,7 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     alt-9 = 'workspace 9'
     alt-0 = 'workspace 10'
 
-    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
     alt-shift-2 = 'move-node-to-workspace 2'
     alt-shift-3 = 'move-node-to-workspace 3'
     alt-shift-4 = 'move-node-to-workspace 4'
@@ -127,7 +113,12 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     r = ['flatten-workspace-tree', 'mode main'] # reset layout
     f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 
-    s = ['exec-and-forget sketchybar --bar hidden=toggle']
+    alt-f = ['fullscreen', 'mode main']
+
+    alt-shift-h = ['join-with left', 'mode main']
+    alt-shift-j = ['join-with down', 'mode main']
+    alt-shift-k = ['join-with up', 'mode main']
+    alt-shift-l = ['join-with right', 'mode main']
 
     backspace = ['close-all-windows-but-current', 'mode main']
 
@@ -139,6 +130,11 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     if.app-name-regex-substring = 'messages'
     run = 'layout floating'
 
+[[on-window-detected]]
+    if.app-id = 'org.mitchellh.ghostty'
+    run = 'workspace 1'
+
 [workspace-to-monitor-force-assignment]
     1 = 'main'
+    2 = 'secondary'
 
