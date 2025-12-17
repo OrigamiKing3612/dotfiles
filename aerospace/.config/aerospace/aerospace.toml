@@ -123,11 +123,15 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     backspace = ['close-all-windows-but-current', 'mode main']
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'finder'
+    if.app-id = 'com.apple.finder'
     run = 'layout floating'
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'messages'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Passwords'
     run = 'layout floating'
 
 [[on-window-detected]]
