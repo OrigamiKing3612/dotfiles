@@ -1,6 +1,8 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	lazy = false,
+	branch = "master",
 	opts = {
 		-- A list of parser names, or "all"
 		ensure_installed = {
