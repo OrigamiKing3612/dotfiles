@@ -14,7 +14,7 @@ fi
 
 sudo pacman -Syu --noconfirm
 
-needed=(git jq curl wget stow tar)
+needed=(git jq curl wget stow tar base-devel)
 
 for pkg in "${needed[@]}"; do
     if ! command -v "$pkg" >/dev/null 2>&1; then
