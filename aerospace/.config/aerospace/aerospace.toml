@@ -127,7 +127,11 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     run = 'layout floating'
 
 [[on-window-detected]]
-    if.app-name-regex-substring = 'messages'
+    if.app-id = 'com.apple.MobileSMS'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.systempreferences'
     run = 'layout floating'
 
 [[on-window-detected]]
