@@ -269,6 +269,13 @@
       "mode": "view"
     },
     {
+      "name": "openWorkspaceCommand",
+      "title": "Open Workspace",
+      "subtitle": "Obsidian",
+      "description": "Open a workspace in Obsidian.",
+      "mode": "view"
+    },
+    {
       "name": "dailyNoteAppendCommand",
       "title": "Append to Daily Note",
       "subtitle": "Obsidian",
@@ -651,7 +658,7 @@
     {
       "name": "createNote",
       "title": "Create Note",
-      "description": "Create a new note in an Obsidian vault or create/open today's daily note",
+      "description": "Create a new note in an Obsidian vault.",
       "instructions": "Create a new note in an Obsidian vault or create/open today's daily note",
       "input": {
         "type": "object",
@@ -663,10 +670,6 @@
           "content": {
             "type": "string",
             "description": "The content of the note"
-          },
-          "useDailyNote": {
-            "type": "boolean",
-            "description": "Whether to create/open today's daily note instead of a regular note (default: false)"
           },
           "vaultName": {
             "type": "string",

@@ -142,6 +142,10 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     if.app-id = 'org.mitchellh.ghostty'
     run = 'workspace 1'
 
+[[on-window-detected]]
+    if.app-id = 'com.apple.mail'
+    run = 'layout floating'
+
 [workspace-to-monitor-force-assignment]
     1 = 'main'
     2 = 'secondary'
