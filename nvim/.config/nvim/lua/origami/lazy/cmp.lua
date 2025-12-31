@@ -46,13 +46,14 @@ return {
 				enabled = true,
 			},
 			sources = {
-				default = { "lazydev", "lsp", "path", "snippets", "buffer", "copilot" },
+				-- "lazydev",
+				default = { "lsp", "path", "snippets", "buffer", "copilot" },
 				providers = {
-					lazydev = {
-						name = "LazyDev",
-						module = "lazydev.integrations.blink",
-						score_offset = 100,
-					},
+					-- lazydev = {
+					-- 	name = "LazyDev",
+					-- 	module = "lazydev.integrations.blink",
+					-- 	score_offset = 100,
+					-- },
 					copilot = {
 						name = "copilot",
 						module = "blink-cmp-copilot",
@@ -107,19 +108,19 @@ return {
 			},
 		},
 	},
-	{
-		"folke/lazydev.nvim",
-		ft = "lua",
-		opts = {
-			library = {
-				"lazy.nvim",
-				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-				"LazyVim",
-				"LazyDev",
-			},
-			enabled = function(root_dir)
-				return not vim.uv.fs_stat(root_dir .. "/.luarc.json")
-			end,
-		},
-	},
+	-- {
+	-- 	"folke/lazydev.nvim",
+	-- 	ft = "lua",
+	-- 	opts = {
+	-- 		library = {
+	-- 			"lazy.nvim",
+	-- 			{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+	-- 			"LazyVim",
+	-- 			"LazyDev",
+	-- 		},
+	-- 		enabled = function(root_dir)
+	-- 			return not vim.uv.fs_stat(root_dir .. "/.luarc.json")
+	-- 		end,
+	-- 	},
+	-- },
 }

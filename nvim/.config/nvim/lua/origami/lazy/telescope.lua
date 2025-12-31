@@ -1,15 +1,15 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
+		tag = "v0.2.0",
 		dependencies = {
+			"BurntSushi/ripgrep",
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-fzy-native.nvim",
 		},
 		opts = function()
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
-			local trouble_telescope = require("trouble.sources.telescope")
 
 			telescope.setup({
 				defaults = {
@@ -31,7 +31,6 @@ return {
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-j>"] = actions.move_selection_next,
 						["<C-q>"] = actions.send_selected_to_qflist,
-						["<C-t>"] = trouble_telescope.open,
 					},
 				},
 			})
