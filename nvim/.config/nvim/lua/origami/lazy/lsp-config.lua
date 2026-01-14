@@ -62,6 +62,7 @@ vim.lsp.config("gopls", {
 	end,
 })
 vim.lsp.enable({ "gopls" })
+vim.lsp.enable({ "golangci-lint-langserver" })
 
 vim.lsp.config("rust_analyzer", {
 	filetypes = { "rust" },

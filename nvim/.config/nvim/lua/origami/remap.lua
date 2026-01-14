@@ -31,6 +31,7 @@ end)
 
 -- Renames the word that is under the cursor
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+vim.keymap.set("n", "<leader>S", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
 
 -- tmux
 vim.keymap.set("n", "C-h", ":TmuxNavigateLeft<CR>")

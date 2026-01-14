@@ -1,3 +1,7 @@
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
+fi
+
 export OPENSSL_INCLUDE_DIR=/usr/local/opt/openssl/include
 export OPENSSL_LIB_DIR=/usr/local/opt/openssl/lib
 export EDITOR="nvim"

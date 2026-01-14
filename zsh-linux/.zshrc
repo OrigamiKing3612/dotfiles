@@ -35,7 +35,7 @@ fi
 
 # Silicon doesn't seem to support ~ or $HOME
 if type silicon &>/dev/null; then
- alias silicon="silicon --theme=\"~/dotfiles/bat/.config/bat/themes/Catppuccin Mocha.tmTheme\""
+    alias silicon="silicon --theme=\"~/dotfiles/bat/.config/bat/themes/Catppuccin Mocha.tmTheme\""
 fi
 
 source ~/dotfiles/.extra_files/zsh_syntax_highlighting.zsh
