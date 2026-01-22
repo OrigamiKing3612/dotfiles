@@ -114,6 +114,12 @@ alias clean='sudo ~/clean.sh'
 alias pbcopy='xsel --input --clipboard'
 alias pbpaste='xsel --output --clipboard'
 
+if type docker-compose &>/dev/null; then
+    alias dc='docker-compose'
+    alias dc-update='docker-compose pull && docker-compose down && docker-compose up -d'
+fi
+
+
 # Silicon doesn't seem to support ~ or $HOME
 if type silicon &>/dev/null; then
     alias silicon="silicon --theme=\"~/dotfiles/bat/.config/bat/themes/Catppuccin Mocha.tmTheme\""

@@ -1,6 +1,9 @@
 return {
 	{
 		"zbirenbaum/copilot.lua",
+		dependencies = {
+			"giuxtaposition/blink-cmp-copilot",
+		},
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
@@ -10,7 +13,6 @@ return {
 			})
 		end,
 	},
-	{ "giuxtaposition/blink-cmp-copilot" },
 	{
 		"saghen/blink.cmp",
 		dependencies = {
