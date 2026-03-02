@@ -105,6 +105,10 @@ if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
 
+if [ -f ~/.zprofile ]; then
+    source ~/.zprofile
+fi
+
 export PATH="$PATH:$CARGO_HOME/bin:$HOME/go/bin:$PNPM_HOME"
 
 if type fzf &>/dev/null; then
@@ -130,3 +134,10 @@ fi
 if type sesh &>/dev/null; then
     source ~/dotfiles/.extra_files/sesh.zsh
 fi
+
+# bun completions
+[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

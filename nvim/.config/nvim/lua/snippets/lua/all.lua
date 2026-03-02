@@ -9,3 +9,19 @@ local sn = ls.snippet_node
 local ts_locals = require("nvim-treesitter.locals")
 local ts_utils = require("nvim-treesitter.ts_utils")
 local get_node_text = vim.treesitter.get_node_text
+
+local project_snippet_path = vim.fn.getcwd() .. "/.nvim/snippets"
+
+if vim.fn.isdirectory(project_snippet_path) == 1 then
+	require("luasnip.loaders.from_lua").load({ paths = project_snippet_path })
+end
+
+vim.api.nvim_create_autocmd("DirChanged", {
+	pattern = "*",
+	callback = function()
+		local path = vim.fn.getcwd() .. "/.nvim/snippets"
+		if vim.fn.isdirectory(path) == 1 then
+			require("luasnip.loaders.from_lua").load({ paths = path })
+		end
+	end,
+})

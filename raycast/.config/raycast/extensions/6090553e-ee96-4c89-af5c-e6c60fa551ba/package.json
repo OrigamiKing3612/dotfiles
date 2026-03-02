@@ -19,7 +19,9 @@
     "denis_ufimtsev",
     "sapoepsilon",
     "theherk",
-    "chris_van_es"
+    "chris_van_es",
+    "vicampuzano",
+    "ErBlack"
   ],
   "license": "MIT",
   "preferences": [
@@ -622,6 +624,13 @@
           "type": "checkbox"
         }
       ]
+    },
+    {
+      "name": "runActionCommand",
+      "title": "Custom Actions",
+      "subtitle": "Obsidian",
+      "description": "Manage and run custom append actions",
+      "mode": "view"
     }
   ],
   "tools": [
@@ -635,7 +644,7 @@
     {
       "name": "searchNote",
       "title": "Search Note",
-      "description": "Search for notes in Obsidian vaults by name or content and return a list of matching notes with their locations",
+      "description": "Search for notes in Obsidian vaults by title, path, and optionally content.",
       "instructions": "Search for notes in Obsidian vaults and return a list of matching notes with their title, vault, and path",
       "input": {
         "type": "object",
@@ -647,6 +656,10 @@
           "vaultName": {
             "type": "string",
             "description": "If the user provides a vault name or hints towards one, ALWAYS use it here."
+          },
+          "searchContent": {
+            "type": "boolean",
+            "description": "Whether to search inside note content and enable tag filtering.\nSet to false for faster title/path-only search.\nDefaults to true."
           }
         },
         "required": [

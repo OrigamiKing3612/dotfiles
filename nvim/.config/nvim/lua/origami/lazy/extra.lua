@@ -23,4 +23,14 @@ return {
 		"wakatime/vim-wakatime",
 		lazy = false,
 	},
+	{
+		"virchau13/tree-sitter-astro",
+		lazy = true,
+		ft = "astro",
+	},
+	{
+		"davidmh/mdx.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		event = "BufEnter *.mdx",
+	},
 }

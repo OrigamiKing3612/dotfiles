@@ -10,6 +10,10 @@ return {
 			require("copilot").setup({
 				suggestion = { enabled = false },
 				panel = { enabled = false },
+				copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/nvm/versions/node/v25.2.1/bin/node",
+				nes = {
+					enabled = false,
+				},
 			})
 		end,
 	},

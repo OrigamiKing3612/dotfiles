@@ -1,5 +1,8 @@
-vim.keymap.set("n", "<leader>F", ":Themery<CR>")
-vim.keymap.set("n", "<leader>L", ":Lazy<CR>")
+vim.keymap.set({ "n", "v", "x" }, "j", "gj")
+vim.keymap.set({ "n", "v", "x" }, "k", "gk")
+
+vim.keymap.set({ "n", "v", "x" }, "<leader>F", ":Themery<CR>")
+vim.keymap.set({ "n", "v", "x" }, "<leader>L", ":Lazy<CR>")
 
 -- move lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

@@ -143,6 +143,11 @@ vim.lsp.enable({ "templ" })
 
 vim.lsp.enable("clangd")
 
+vim.lsp.config("astro", {
+	capabilities = capabilities,
+})
+vim.lsp.enable("astro")
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		local opts = { buffer = event.buf }
@@ -184,5 +189,10 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"saghen/blink.cmp",
+			"mason-org/mason.nvim",
+			"j-hui/fidget.nvim",
+		},
 	},
 }
