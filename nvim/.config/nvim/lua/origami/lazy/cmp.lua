@@ -10,7 +10,8 @@ return {
 			require("copilot").setup({
 				suggestion = { enabled = false },
 				panel = { enabled = false },
-				copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/nvm/versions/node/v25.2.1/bin/node",
+				-- copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/nvm/versions/node/" .. vim.fn.system("node -v"):gsub("\n", "") .. "/bin/node",
+				copilot_node_command = vim.fn.exepath("node"),
 				nes = {
 					enabled = false,
 				},
