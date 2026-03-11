@@ -90,6 +90,8 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias ..='cd ..'
+alias jq='jq --color-output'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -118,7 +120,6 @@ if type docker-compose &>/dev/null; then
     alias dc='docker-compose'
     alias dc-update='docker-compose pull && docker-compose down && docker-compose up -d'
 fi
-
 
 # Silicon doesn't seem to support ~ or $HOME
 if type silicon &>/dev/null; then

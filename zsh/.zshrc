@@ -97,6 +97,8 @@ alias clean='~/clean.sh'
 alias vim='nvim'
 alias :q='exit'
 alias cdtmp='cd $(mktemp -d)'
+alias ..='cd ..'
+alias jq='jq --color-output'
 
 if type brew &>/dev/null; then
     [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
