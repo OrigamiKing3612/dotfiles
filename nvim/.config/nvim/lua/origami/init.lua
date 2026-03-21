@@ -41,3 +41,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		vim.cmd("TSBufEnable highlight")
 	end,
 })
+
+-- autocmd("ColorScheme", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+-- 	end,
+-- })

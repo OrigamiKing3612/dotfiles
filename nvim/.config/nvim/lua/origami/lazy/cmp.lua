@@ -53,18 +53,15 @@ return {
 				enabled = true,
 			},
 			sources = {
-				-- "lazydev",
 				default = { "lsp", "path", "snippets", "buffer", "copilot" },
 				providers = {
-					-- lazydev = {
-					-- 	name = "LazyDev",
-					-- 	module = "lazydev.integrations.blink",
-					-- 	score_offset = 100,
-					-- },
+					snippets = {
+						score_offset = 100,
+					},
 					copilot = {
 						name = "copilot",
 						module = "blink-cmp-copilot",
-						score_offset = 100,
+						score_offset = 90,
 						async = true,
 						transform_items = function(_, items)
 							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
@@ -115,19 +112,4 @@ return {
 			},
 		},
 	},
-	-- {
-	-- 	"folke/lazydev.nvim",
-	-- 	ft = "lua",
-	-- 	opts = {
-	-- 		library = {
-	-- 			"lazy.nvim",
-	-- 			{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-	-- 			"LazyVim",
-	-- 			"LazyDev",
-	-- 		},
-	-- 		enabled = function(root_dir)
-	-- 			return not vim.uv.fs_stat(root_dir .. "/.luarc.json")
-	-- 		end,
-	-- 	},
-	-- },
 }

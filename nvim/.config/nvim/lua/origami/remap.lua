@@ -43,7 +43,11 @@ vim.keymap.set("n", "C-k", ":TmuxNavigateUp<CR>")
 vim.keymap.set("n", "C-l", ":TmuxNavigateRight<CR>")
 
 -- spelling
-vim.keymap.set("n", "z=", require("telescope.builtin").spell_suggest)
+vim.keymap.set("n", "z=", function()
+	Snacks.picker.spelling({
+		layout = "telescope",
+	})
+end)
 vim.keymap.set("n", "zg", "zg") -- add word to dictionary
 vim.keymap.set("n", "zw", "zw") -- remove word from dictionary
 vim.keymap.set("n", "]s", "]s") -- move to next spelling errors

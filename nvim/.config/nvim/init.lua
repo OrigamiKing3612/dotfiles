@@ -1,3 +1,3 @@
 require("origami")
 
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme catppuccin-nvim")
