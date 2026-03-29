@@ -1,5 +1,7 @@
 return {
-	"numToStr/Comment.nvim",
+	-- 'numToStr/Comment.nvim',
+	"faergeek/Comment.nvim", -- use this and branch until fixed
+	branch = "nvim-0.12-compatibility",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"JoosepAlviste/nvim-ts-context-commentstring",
