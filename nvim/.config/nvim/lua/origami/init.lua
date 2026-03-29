@@ -35,7 +35,7 @@ autocmd("BufWritePre", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
+autocmd("BufEnter", {
 	pattern = "*",
 	callback = function()
 		vim.cmd("TSBufEnable highlight")

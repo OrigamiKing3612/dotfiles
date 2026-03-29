@@ -10,6 +10,7 @@ return {
 				dark = "mocha",
 			},
 			default_integrations = true,
+			auto_integrations = true,
 			custom_highlights = function(C)
 				local O = require("catppuccin").options
 				return {
