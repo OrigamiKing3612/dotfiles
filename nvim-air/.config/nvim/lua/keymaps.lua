@@ -31,7 +31,9 @@ vim.keymap.set("n", "C-l", ":TmuxNavigateRight<CR>")
 -- lsp
 vim.keymap.set("n", "<leader><CR>", vim.diagnostic.open_float, { desc = "Show diagnostic message" })
 
-vim.keymap.set("n", "<leader>lg", Snacks.lazygit, { desc = "Open Lazygit" })
+vim.keymap.set("n", "<leader>lg", function()
+	Snacks.lazygit()
+end, { desc = "Open Lazygit" })
 vim.keymap.set("n", "<leader>llg", Snacks.lazygit.log, { desc = "Open Lazygit Log" })
 vim.keymap.set({ "n", "v" }, "<leader>K", Snacks.image.hover, { desc = "Hover Image" })
 vim.keymap.set("n", "<leader>ff", function()
