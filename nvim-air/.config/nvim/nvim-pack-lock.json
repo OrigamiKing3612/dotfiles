@@ -1,24 +1,28 @@
 {
-  "plugins": {
-    "mason-lspconfig.nvim": {
-      "rev": "037398b9ce4a53ba48d5f94765c641a1fd16d906",
-      "src": "https://github.com/williamboman/mason-lspconfig.nvim"
-    },
-    "mason.nvim": {
-      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
-      "src": "https://github.com/williamboman/mason.nvim"
-    },
-    "nvim": {
-      "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8",
-      "src": "https://github.com/catppuccin/nvim"
-    },
-    "nvim-lspconfig": {
-      "rev": "16812abf0e8d8175155f26143a8504e8253e92b0",
-      "src": "https://github.com/neovim/nvim-lspconfig"
-    },
-    "vim-tmux-navigator": {
-      "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
-      "src": "https://github.com/christoomey/vim-tmux-navigator"
+    "plugins": {
+        "mason-lspconfig.nvim": {
+            "rev": "037398b9ce4a53ba48d5f94765c641a1fd16d906",
+            "src": "https://github.com/mason-org/mason-lspconfig.nvim"
+        },
+        "mason.nvim": {
+            "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
+            "src": "https://github.com/mason-org/mason.nvim"
+        },
+        "nvim": {
+            "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8",
+            "src": "https://github.com/catppuccin/nvim"
+        },
+        "snacks.nvim": {
+            "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
+            "src": "https://github.com/folke/snacks.nvim"
+        },
+        "nvim-lspconfig": {
+            "rev": "16812abf0e8d8175155f26143a8504e8253e92b0",
+            "src": "https://github.com/neovim/nvim-lspconfig"
+        },
+        "vim-tmux-navigator": {
+            "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
+            "src": "https://github.com/christoomey/vim-tmux-navigator"
+        }
     }
-  }
 }
