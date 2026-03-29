@@ -29,8 +29,13 @@ mkdir -p ~/.local/share/nvm
 VERSION=$(curl -s "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | jq -r .tag_name | tr -d '\n')
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/${VERSION}/install.sh | bash
 source ~/.bashrc
-nvm install 25
-npm install -g tree-sitter-cli
+mkdir -p $NVM_DIR
+if type nvm &>/dev/null; then
+    nvm install 25
+    npm install -g tree-sitter-cli
+else
+    echo "nvm installation failed, skipping node and tree-sitter-cli installation"
+fi
 
 cd "$HOME/dotfiles"
 stow nvim silicon

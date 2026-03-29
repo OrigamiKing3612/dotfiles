@@ -55,13 +55,13 @@ return {
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer", "copilot" },
 				providers = {
-					snippets = {
-						score_offset = 100,
-					},
+					-- snippets = {
+					-- 	score_offset = 100,
+					-- },
 					copilot = {
 						name = "copilot",
 						module = "blink-cmp-copilot",
-						score_offset = 90,
+						score_offset = 100,
 						async = true,
 						transform_items = function(_, items)
 							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind

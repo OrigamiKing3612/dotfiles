@@ -100,14 +100,6 @@ alias cdtmp='cd $(mktemp -d)'
 alias ..='cd ..'
 alias jq='jq --color-output'
 
-if type brew &>/dev/null; then
-    [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
-    [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"
-else
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-fi
-
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
@@ -116,7 +108,6 @@ if [ -f ~/.zprofile ]; then
     source ~/.zprofile
 fi
 
-export PATH="$PATH:$CARGO_HOME/bin:$HOME/go/bin:$PNPM_HOME"
 
 if type fzf &>/dev/null; then
     eval "$(fzf --zsh)"
@@ -147,9 +138,13 @@ fi
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/malachi/.docker/completions $fpath)
+fpath=(~/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+export PATH="$PATH:$CARGO_HOME/bin:$HOME/go/bin:$PNPM_HOME:$BUN_INSTALL/bin"
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
