@@ -35,10 +35,13 @@ autocmd("BufWritePre", {
 	end,
 })
 
-autocmd("BufEnter", {
-	pattern = "*",
+autocmd("FileType", {
+	pattern = { "*" },
 	callback = function()
-		vim.cmd("TSBufEnable highlight")
+		if vim.bo.buftype ~= "" then -- ignore non-file buffers
+			return
+		end
+		vim.treesitter.start()
 	end,
 })
 
