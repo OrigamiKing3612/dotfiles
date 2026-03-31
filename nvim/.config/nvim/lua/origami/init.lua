@@ -38,7 +38,7 @@ autocmd("BufWritePre", {
 autocmd("FileType", {
 	pattern = { "*" },
 	callback = function()
-		if vim.bo.buftype ~= "" then -- ignore non-file buffers
+		if vim.bo.buftype ~= "" or vim.bo.buftype ~= "text" then -- ignore non-file buffers
 			return
 		end
 		vim.treesitter.start()
