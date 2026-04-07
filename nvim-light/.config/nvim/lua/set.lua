@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.o.number = true
+vim.o.nu = true
 vim.o.relativenumber = true
 
 vim.o.tabstop = 4
@@ -12,7 +12,6 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 
 vim.o.wrap = false
-vim.o.linebreak = true
 
 vim.o.swapfile = false
 vim.o.backup = false
@@ -38,10 +37,6 @@ vim.o.termguicolors = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.cursorline = false
-
-vim.g.snipmate_snippets_path = vim.fn.stdpath("config") .. "/lua/snippets/snipmate"
-vim.g.vscode_snippets_path = vim.fn.stdpath("config") .. "/lua/snippets/vscode"
-vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/lua/snippets/lua"
 
 vim.o.winborder = "rounded"
 vim.o.winblend = 20

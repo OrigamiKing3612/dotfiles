@@ -24,14 +24,15 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export _ZO_DATA_DIR="$XDG_DATA_HOME/zoxide"
+
 export GPG_TTY=$(tty)
 
 export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#89B4FA \
---color=fg:#CDD6F4,header:#89B4FA,info:#89B4FA,pointer:#89B4FA \
---color=marker:#89B4FA,fg+:#CDD6F4,prompt:#89B4FA,hl+:#89B4FA \
---color=selected-bg:#45475A \
---color=border:#6C7086,label:#CDD6F4"
+    --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#89B4FA \
+    --color=fg:#CDD6F4,header:#89B4FA,info:#89B4FA,pointer:#89B4FA \
+    --color=marker:#89B4FA,fg+:#CDD6F4,prompt:#89B4FA,hl+:#89B4FA \
+    --color=selected-bg:#45475A \
+    --color=border:#6C7086,label:#CDD6F4"
 
 if type bat &>/dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -50,22 +51,19 @@ source ~/dotfiles/.extra_files/zsh_syntax_highlighting.zsh
 
 # Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+zinit ice depth=1; zinit light zsh-users/zsh-syntax-highlighting
+zinit ice depth=1; zinit wait lucid for zsh-users/zsh-completions
+zinit ice depth=1; zinit wait lucid for zsh-users/zsh-autosuggestions
+zinit ice depth=1; zinit wait lucid for Aloxaf/fzf-tab
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
-
-bindkey -e
 
 setopt appendhistory
 setopt sharehistory
@@ -75,30 +73,37 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+bindkey -e
+
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-
-autoload -U compinit
-fpath=(${fpath[@]:#"/opt/homebrew/share/zsh/site-functions"})
-compinit
-zinit cdreplay -q
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 
 if type brew &>/dev/null; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    autoload -Uz compinit
-    compinit
 fi
 
-alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+fpath=(~/.docker/completions $fpath)
 
+autoload -Uz compinit && compinit
+zinit cdreplay -q
+
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 alias ls='ls --color=always'
 alias clean='~/clean.sh'
-alias vim='nvim'
 alias :q='exit'
 alias cdtmp='cd $(mktemp -d)'
 alias ..='cd ..'
-alias jq='jq --color-output'
+
+if type jq &>/dev/null; then
+    alias jq='jq --color-output'
+fi
+
+if type nvim &>/dev/null; then
+    alias vi='nvim'
+    alias vim='nvim'
+fi
 
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
@@ -107,7 +112,6 @@ fi
 if [ -f ~/.zprofile ]; then
     source ~/.zprofile
 fi
-
 
 if type fzf &>/dev/null; then
     eval "$(fzf --zsh)"
@@ -134,16 +138,12 @@ if type sesh &>/dev/null; then
 fi
 
 # bun completions
-[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
+if [ -s "~/.bun/_bun" ]; then
+    export BUN_INSTALL="$XDG_DATA_HOME/bun"
+    source "~/.bun/_bun"
+fi
 
 # bun
-export BUN_INSTALL="$HOME/.bun"
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(~/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
-
 export PATH="$PATH:$CARGO_HOME/bin:$HOME/go/bin:$PNPM_HOME:$BUN_INSTALL/bin"
 
 # Vite+ bin (https://viteplus.dev)

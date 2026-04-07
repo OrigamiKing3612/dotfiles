@@ -10,9 +10,9 @@ on-focus-changed = "move-mouse window-lazy-center"
 
 default-root-container-layout = 'tiles'
 
-exec-on-workspace-change = ['/bin/bash', '-c',
-  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
-]
+# exec-on-workspace-change = ['/bin/bash', '-c',
+#   'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+# ]
 
 [gaps]
     inner.horizontal = 5
@@ -152,5 +152,8 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 
 [workspace-to-monitor-force-assignment]
     1 = 'main'
-    2 = 'secondary'
+    2 = 'main'
+    3 = 'main'
+    4 = 'main'
+    5 = 'secondary'
 

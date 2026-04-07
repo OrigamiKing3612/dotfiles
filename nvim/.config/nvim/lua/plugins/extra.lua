@@ -2,10 +2,6 @@ return {
 	{ "nvim-lua/plenary.nvim" },
 	{ "nvim-tree/nvim-web-devicons" },
 	{
-		"elkowar/yuck.vim",
-		ft = "yuck",
-	},
-	{
 		"rushjs1/nuxt-goto.nvim",
 		ft = "vue",
 	},
@@ -22,11 +18,6 @@ return {
 	{
 		"wakatime/vim-wakatime",
 		lazy = false,
-	},
-	{
-		"virchau13/tree-sitter-astro",
-		lazy = true,
-		ft = "astro",
 	},
 	{
 		"davidmh/mdx.nvim",

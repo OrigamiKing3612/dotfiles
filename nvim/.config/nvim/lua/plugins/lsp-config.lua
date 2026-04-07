@@ -43,11 +43,10 @@ vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			workspace = {
-				-- library = {
-				-- 	vim.fn.stdpath("data") .. "/lazy/snacks.nvim/lua",
-				-- 	vim.api.nvim_get_runtime_file("", true),
-				-- },
-				library = vim.api.nvim_get_runtime_file("", true),
+				library = {
+					vim.env.VIMRUNTIME,
+					vim.fn.stdpath("data") .. "/lazy/snacks.nvim/lua",
+				},
 			},
 		},
 	},
@@ -147,10 +146,10 @@ vim.lsp.enable({ "templ" })
 
 vim.lsp.enable("clangd")
 
-vim.lsp.config("astro", {
-	capabilities = capabilities,
-})
+vim.lsp.config("astro", {})
 vim.lsp.enable("astro")
+
+vim.lsp.enable("ast-grep")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)

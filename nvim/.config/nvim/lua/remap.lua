@@ -1,7 +1,6 @@
 vim.keymap.set({ "n", "v", "x" }, "j", "gj")
 vim.keymap.set({ "n", "v", "x" }, "k", "gk")
 
-vim.keymap.set({ "n", "v", "x" }, "<leader>F", ":Themery<CR>")
 vim.keymap.set({ "n", "v", "x" }, "<leader>L", ":Lazy<CR>")
 
 -- move lines up and down
@@ -35,12 +34,6 @@ end)
 -- Renames the word that is under the cursor
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 vim.keymap.set("n", "<leader>S", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
-
--- tmux
-vim.keymap.set("n", "C-h", ":TmuxNavigateLeft<CR>")
-vim.keymap.set("n", "C-j", ":TmuxNavigateDown<CR>")
-vim.keymap.set("n", "C-k", ":TmuxNavigateUp<CR>")
-vim.keymap.set("n", "C-l", ":TmuxNavigateRight<CR>")
 
 -- spelling
 vim.keymap.set("n", "z=", function()
