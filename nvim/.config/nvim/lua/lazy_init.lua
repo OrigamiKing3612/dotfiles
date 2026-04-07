@@ -19,7 +19,7 @@ rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		{ import = "plugins" }
+		{ import = "plugins" },
 	},
 	checker = { enabled = true, notify = false },
 	change_detection = { notify = false },
@@ -27,5 +27,18 @@ require("lazy").setup({
 	ui = {
 		border = "rounded",
 		backdrop = 60,
+	},
+	performance = {
+		cache = { enabled = true },
+		rtp = {
+			disabled_plugins = {
+				"netrwPlugin",
+				"gzip",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
 	},
 })

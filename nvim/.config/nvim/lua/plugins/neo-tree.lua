@@ -1,6 +1,7 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
+	lazy = false,
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 	},
@@ -22,7 +23,7 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>")
+		-- vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>")
 
 		local function on_move(data)
 			Snacks.rename.on_rename_file(data.source, data.destination)

@@ -167,6 +167,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 return {
 	{
 		"mason-org/mason.nvim",
+		cmd = "Mason",
 		opts = {
 			ui = {
 				icons = {
@@ -197,7 +198,6 @@ return {
 		dependencies = {
 			"saghen/blink.cmp",
 			"mason-org/mason.nvim",
-			"j-hui/fidget.nvim",
 		},
 	},
 }

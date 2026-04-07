@@ -45,3 +45,6 @@ vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/snippets/lua"
 
 vim.o.winborder = "rounded"
 vim.o.winblend = 20
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

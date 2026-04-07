@@ -1,3 +1,5 @@
+vim.keymap.set("", "<C-z>", "<nop>", { noremap = true, silent = true })
+
 vim.keymap.set({ "n", "v", "x" }, "j", "gj")
 vim.keymap.set({ "n", "v", "x" }, "k", "gk")
 
