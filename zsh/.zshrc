@@ -84,8 +84,6 @@ if type brew &>/dev/null; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-fpath=(~/.docker/completions $fpath)
-
 autoload -Uz compinit && compinit
 zinit cdreplay -q
 
