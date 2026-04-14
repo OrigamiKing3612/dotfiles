@@ -29,9 +29,6 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>p", "<nop>")
-vim.keymap.set("n", "<leader>f", function()
-	require("conform").format({ async = true })
-end)
 
 -- Renames the word that is under the cursor
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")

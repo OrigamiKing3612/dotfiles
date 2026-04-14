@@ -179,19 +179,23 @@ return {
 		},
 	},
 	{
-		-- "mason-org/mason-lspconfig.nvim",
-		-- opts = {
-		-- 	ensure_installed = {
-		-- 		"lua_ls",
-		-- 		"ts_ls",
-		-- 		-- "volar",
-		-- 		"pyright",
-		-- 		"yamlls",
-		-- 		"dockerls",
-		-- 		"docker_compose_language_service",
-		-- 		"vtsls",
-		-- 	},
-		-- },
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = {
+			"mason-org/mason.nvim",
+			"neovim/nvim-lspconfig",
+		},
+		opts = {
+			ensure_installed = {
+				"lua_ls",
+				"ts_ls",
+				-- "volar",
+				"pyright",
+				"yamlls",
+				"dockerls",
+				"docker_compose_language_service",
+				"vtsls",
+			},
+		},
 	},
 	{
 		"neovim/nvim-lspconfig",
