@@ -3,6 +3,7 @@ vim.g.maplocalleader = " "
 
 vim.o.number = true
 vim.o.relativenumber = true
+-- vim.o.autocomplete = true
 
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
@@ -45,6 +46,19 @@ vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/snippets/lua"
 
 vim.o.winborder = "rounded"
 vim.o.winblend = 20
+vim.opt.synmaxcol = 500
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+vim.g.clipboard = {
+	name = "OSC 52",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+	},
+}

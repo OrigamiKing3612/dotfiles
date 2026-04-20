@@ -39,7 +39,7 @@ return {
 			layout = "telescope",
 		},
 		input = {
-			enable = true,
+			enabled = true,
 			relative = "cursor",
 			row = -3,
 			col = 0,
@@ -51,10 +51,10 @@ return {
 			},
 		},
 		git = {
-			enable = true,
+			enabled = false,
 		},
 		words = {
-			enable = true,
+			enabled = false,
 		},
 		win = {
 			border = "rounded",
@@ -65,6 +65,9 @@ return {
 		},
 		styles = {
 			float = {},
+		},
+		statuscolumn = {
+			enabled = true,
 		},
 	},
 	keys = {

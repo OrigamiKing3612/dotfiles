@@ -35,6 +35,8 @@ return {
 			{ event = events.FILE_RENAMED, handler = on_move },
 		})
 
+		---@module 'neo-tree'
+		---@type neotree.Config
 		return {
 			close_if_last_window = true,
 			popup_border_style = "rounded",

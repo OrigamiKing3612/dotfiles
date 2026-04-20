@@ -20,20 +20,10 @@ local vtsls_config = {
 	filetypes = tsserver_filetypes,
 }
 
-local ts_ls_config = {
-	init_options = {
-		plugins = {
-			vue_plugin,
-		},
-	},
-	filetypes = tsserver_filetypes,
-}
-
 local vue_ls_config = {}
 
 vim.lsp.config("vtsls", vtsls_config)
 vim.lsp.config("vue_ls", vue_ls_config)
-vim.lsp.config("ts_ls", ts_ls_config)
 vim.lsp.enable({ "vtsls", "vue_ls" })
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -180,6 +170,7 @@ return {
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"mason-org/mason.nvim",
 			"neovim/nvim-lspconfig",

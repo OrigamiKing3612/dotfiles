@@ -6,17 +6,14 @@ return {
 		},
 		cmd = "Copilot",
 		event = "InsertEnter",
-		config = function()
-			require("copilot").setup({
-				suggestion = { enabled = false },
-				panel = { enabled = false },
-				-- copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/nvm/versions/node/" .. vim.fn.system("node -v"):gsub("\n", "") .. "/bin/node",
-				copilot_node_command = vim.fn.exepath("node"),
-				nes = {
-					enabled = false,
-				},
-			})
-		end,
+		opts = {
+			suggestion = { enabled = false },
+			panel = { enabled = false },
+			copilot_node_command = vim.fn.exepath("node"),
+			nes = {
+				enabled = false,
+			},
+		},
 	},
 	{
 		"saghen/blink.cmp",
