@@ -30,6 +30,7 @@ return {
 			-- https://github.com/Saghen/blink.pairs/blob/main/lua/blink/pairs/config/mappings.lua#L52
 			pairs = {},
 		},
+		fuzzy = { implementation = "prefer_rust_with_warning" },
 		highlights = {
 			enabled = true,
 			-- requires require('vim._extui').enable({}), otherwise has no effect

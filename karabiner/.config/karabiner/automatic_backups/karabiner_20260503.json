@@ -5,7 +5,6 @@
                 "rules": [
                     {
                         "description": "Hyper Key home row numbers",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {

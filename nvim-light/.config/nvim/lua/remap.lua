@@ -1,4 +1,9 @@
-vim.keymap.set("n", "<leader>L", ":Lazy<CR>")
+vim.keymap.set("", "<C-z>", "<nop>", { noremap = true, silent = true })
+
+vim.keymap.set({ "n", "v", "x" }, "j", "gj")
+vim.keymap.set({ "n", "v", "x" }, "k", "gk")
+
+vim.keymap.set({ "n", "v", "x" }, "<leader>L", ":Lazy<CR>")
 
 -- move lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -15,9 +20,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- jump to the first word in a line
-vim.keymap.set("n", "9", "0w")
-
 -- in Visual Line mode, copy and paste a line
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("v", "p", '"_dP')
@@ -27,18 +29,10 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>p", "<nop>")
-vim.keymap.set("n", "<leader>f", function()
-	require("conform").format({ async = true })
-end)
 
 -- Renames the word that is under the cursor
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
-
--- tmux
-vim.keymap.set("n", "C-h", ":TmuxNavigateLeft<CR>")
-vim.keymap.set("n", "C-j", ":TmuxNavigateDown<CR>")
-vim.keymap.set("n", "C-k", ":TmuxNavigateUp<CR>")
-vim.keymap.set("n", "C-l", ":TmuxNavigateRight<CR>")
+vim.keymap.set("n", "<leader>S", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
 
 vim.api.nvim_create_user_command("W", "w", {})
 vim.api.nvim_create_user_command("Wq", "wq", {})
@@ -50,5 +44,6 @@ vim.keymap.set("n", "<leader><CR>", vim.diagnostic.open_float, { desc = "Show di
 vim.keymap.set("n", "H", "<cmd>bprev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "L", "<cmd>bnext<CR>", { desc = "Next buffer" })
 
+vim.keymap.set("n", "<leader>w", "<cmd>:w<CR>")
 vim.keymap.set("n", "<leader>qq", "<cmd>:q<CR>")
-vim.keymap.set("n", "<leader>qqa", "<cmd>:qa<CR>")
+vim.keymap.set("n", "<leader>qaa", "<cmd>:qa<CR>")

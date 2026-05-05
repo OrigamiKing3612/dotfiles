@@ -77,8 +77,12 @@ return {
 					},
 				},
 			},
+			source_selector = {
+				statusline = true,
+			},
 			window = {
 				persist_state = true,
+				show_statusline = false,
 				mappings = {
 					["<bs>"] = "nop",
 					["."] = "nop",

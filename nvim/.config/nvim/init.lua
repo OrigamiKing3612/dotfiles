@@ -70,11 +70,13 @@ autocmd({ "BufRead", "FileType" }, {
 	end,
 })
 
--- autocmd("ColorScheme", {
--- 	pattern = "*",
--- 	callback = function()
--- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
--- 	end,
--- })
+autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "NeoTreeStatusLine", { bg = "NONE", fg = "NONE" })
+		vim.api.nvim_set_hl(0, "NeoTreeStatusLineNC", { bg = "NONE", fg = "NONE" })
+	end,
+})
 
 vim.cmd("colorscheme catppuccin-nvim")
