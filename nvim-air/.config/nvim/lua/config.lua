@@ -38,7 +38,9 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.cursorline = false
 
+vim.o.pumborder = "rounded"
 vim.o.winborder = "rounded"
+vim.o.pumblend = 20
 vim.o.winblend = 20
 
 vim.g.clipboard = {

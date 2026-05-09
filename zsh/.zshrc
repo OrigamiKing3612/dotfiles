@@ -24,6 +24,7 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export _ZO_DATA_DIR="$XDG_DATA_HOME/zoxide"
+export GOKU_EDN_CONFIG_FILE="$XDG_CONFIG_HOME/karabiner/karabiner.edn"
 
 export GPG_TTY=$(tty)
 
@@ -146,3 +147,8 @@ export PATH="$PATH:$CARGO_HOME/bin:$HOME/go/bin:$PNPM_HOME:$BUN_INSTALL/bin"
 
 # Vite+ bin (https://viteplus.dev)
 . "$HOME/.vite-plus/env"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/malachi/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

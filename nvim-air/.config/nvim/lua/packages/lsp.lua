@@ -22,6 +22,8 @@ vim.lsp.config("lua_ls", {
 vim.lsp.enable({ "lua_ls", "bashls", "jsonls", "dockerls", "yamlls" })
 
 vim.o.autocomplete = true
+vim.o.completeopt = { "menuone", "noselect" }
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("origami.lsp", {}),
 	callback = function(ev)

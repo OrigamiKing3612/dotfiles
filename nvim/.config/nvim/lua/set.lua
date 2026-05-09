@@ -44,7 +44,9 @@ vim.g.snipmate_snippets_path = vim.fn.stdpath("config") .. "/snippets/snipmate"
 vim.g.vscode_snippets_path = vim.fn.stdpath("config") .. "/snippets/vscode"
 vim.g.lua_snippets_path = vim.fn.stdpath("config") .. "/snippets/lua"
 
+vim.o.pumborder = "rounded"
 vim.o.winborder = "rounded"
+vim.o.pumblend = 20
 vim.o.winblend = 20
 vim.opt.synmaxcol = 500
 
