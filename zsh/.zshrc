@@ -85,6 +85,8 @@ if type brew &>/dev/null; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+fpath=($HOME/.docker/completions $fpath)
+
 autoload -Uz compinit && compinit
 zinit cdreplay -q
 
@@ -147,8 +149,3 @@ export PATH="$PATH:$CARGO_HOME/bin:$HOME/go/bin:$PNPM_HOME:$BUN_INSTALL/bin"
 
 # Vite+ bin (https://viteplus.dev)
 . "$HOME/.vite-plus/env"
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/malachi/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions

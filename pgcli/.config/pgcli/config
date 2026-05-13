@@ -130,13 +130,13 @@ table_format = psql
 # Syntax Style. Possible values: manni, igor, xcode, vim, autumn, vs, rrt,
 # native, perldoc, borland, tango, emacs, friendly, monokai, paraiso-dark,
 # colorful, murphy, bw, pastie, paraiso-light, trac, default, fruity
-syntax_style = default
+syntax_style = vim
 
 # Keybindings:
 # When Vi mode is enabled you can use modal editing features offered by Vi in the REPL.
 # When Vi mode is disabled emacs keybindings such as Ctrl-A for home and Ctrl-E
 # for end are available in the REPL.
-vi = False
+vi = True
 
 # Error handling
 # When one of multiple SQL statements causes an error, choose to either
@@ -197,38 +197,35 @@ use_local_timezone = True
 
 # Custom colors for the completion menu, toolbar, etc.
 [colors]
-completion-menu.completion.current = 'bg:#cdd6f4 #11111b'
-completion-menu.completion = 'bg:#74c7ec #cdd6f4'
-completion-menu.meta.completion.current = 'bg:#94e2d5 #11111b'
-completion-menu.meta.completion = 'bg:#74c7ec #cdd6f4'
-completion-menu.multi-column-meta = 'bg:#aaffff #11111b'
-scrollbar.arrow = 'bg:#003333'
-scrollbar = 'bg:#94e2d5'
-selected = '#cdd6f4 bg:#b4befe'
-search = '#cdd6f4 bg:#cba6f7'
-search.current = '#ffffff bg:#89dceb'
-bottom-toolbar = 'bg:#1e1e2e #45475a'
-bottom-toolbar.off = 'bg:#1e1e2e #313244'
-bottom-toolbar.on = 'bg:#1e1e2e #cdd6f4'
+completion-menu.completion.current = 'bg:#a6e3a1 #313244'
+completion-menu.completion = 'bg:#181825 #cdd6f4'
+completion-menu.meta.completion.current = 'bg:#181825 #a6e3a1'
+completion-menu.meta.completion = 'bg:#181825 #cdd6f4'
+completion-menu.multi-column-meta = 'bg:#cdd6f4 #a6e3a1'
+scrollbar.arrow = 'bg:#313244'
+scrollbar = 'bg:#1e1e2e'
+selected = '#cdd6f4 bg:#89b4fa'
+search = '#cdd6f4 bg:#b4befe'
+search.current = '#cdd6f4 bg:#a6e3a1'
+bottom-toolbar = 'bg: #a6adc8'
+bottom-toolbar.off = 'bg: #6c7086'
+bottom-toolbar.on = 'bg: #a6adc8'
 search-toolbar = 'noinherit bold'
 search-toolbar.text = 'nobold'
 system-toolbar = 'noinherit bold'
 arg-toolbar = 'noinherit bold'
 arg-toolbar.text = 'nobold'
-bottom-toolbar.transaction.valid = 'bg:#1e1e2e #a6e3a1 bold'
-bottom-toolbar.transaction.failed = 'bg:#1e1e2e #ff005f bold'
-# These three values can be used to further refine the syntax highlighting.
-# They are commented out by default, since they have priority over the theme set
-# with the `syntax_style` setting and overriding its behavior can be confusing.
-# literal.string = '#ba2121'
-# literal.number = '#666666'
-# keyword = 'bold #008000'
+bottom-toolbar.transaction.valid = 'bg: #a6e3a1 bold'
+bottom-toolbar.transaction.failed = 'bg: #f38ba8 bold'
+literal.string = '#f38ba8'
+literal.number = '#666666'
+keyword = 'bold #a6e3a1'
 
 # style classes for colored table output
 output.header = "#a6e3a1 bold"
 output.odd-row = ""
 output.even-row = ""
-output.null = "#a6adc8"
+output.null = "#808080"
 
 # Named queries are queries you can execute by name.
 [named queries]
