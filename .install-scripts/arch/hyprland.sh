@@ -4,7 +4,7 @@ set -e
 
 source ~/dotfiles/.install-scripts/arch/.setup.sh
 
-sudo pacman -S hyprland hypridle hyprlock hyprpaper waybar wofi rofi hyprpolkitagent swaync blueman alsa-utils bluez brightnessctl pavucontrol pamixer hyprlauncher hyprtoolkit hyprutils
+sudo pacman -S hyprland hypridle hyprlock hyprpaper waybar hyprpolkitagent swaync blueman alsa-utils bluez brightnessctl pavucontrol pamixer hyprlauncher hyprtoolkit hyprutils
 yay -S hyprshot wlogout
 
 sudo mkdir -p /usr/share/wlogout/icons
