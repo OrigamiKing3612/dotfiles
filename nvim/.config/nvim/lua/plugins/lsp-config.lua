@@ -149,6 +149,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 		vim.keymap.set("n", "<leader>vrr", Snacks.picker.lsp_references, opts)
 		vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
+		vim.keymap.set("n", "<C-h>", vim.lsp.buf.signature_help, opts)
 	end,
 })
 

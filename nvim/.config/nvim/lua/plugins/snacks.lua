@@ -1,3 +1,15 @@
+---@return boolean
+function IsInGit()
+	local is_inside_work_tree = {}
+	local cwd = vim.fn.getcwd()
+	if is_inside_work_tree[cwd] == nil then
+		vim.fn.system("git rev-parse --is-inside-work-tree")
+		is_inside_work_tree[cwd] = vim.v.shell_error == 0
+	end
+
+	return is_inside_work_tree[cwd]
+end
+
 return {
 	"folke/snacks.nvim",
 	priority = 1001,
@@ -96,14 +108,7 @@ return {
 		{
 			"<leader>ff",
 			function()
-				local is_inside_work_tree = {}
-				local cwd = vim.fn.getcwd()
-				if is_inside_work_tree[cwd] == nil then
-					vim.fn.system("git rev-parse --is-inside-work-tree")
-					is_inside_work_tree[cwd] = vim.v.shell_error == 0
-				end
-
-				if is_inside_work_tree[cwd] then
+				if IsInGit() then
 					Snacks.picker.git_files()
 				else
 					Snacks.picker.files()
@@ -114,14 +119,7 @@ return {
 		{
 			"<leader>fg",
 			function()
-				local is_inside_work_tree = {}
-				local cwd = vim.fn.getcwd()
-				if is_inside_work_tree[cwd] == nil then
-					vim.fn.system("git rev-parse --is-inside-work-tree")
-					is_inside_work_tree[cwd] = vim.v.shell_error == 0
-				end
-
-				if is_inside_work_tree[cwd] then
+				if IsInGit() then
 					Snacks.picker.git_grep()
 				else
 					Snacks.picker.grep()
@@ -163,6 +161,28 @@ return {
 				Snacks.picker.lsp_symbols()
 			end,
 			desc = "Find LSP Symbols",
+		},
+		{
+			"<leader>fw",
+			function()
+				local word = vim.fn.expand("<cword>")
+				if IsInGit() then
+					Snacks.picker.git_grep({ search = word })
+				else
+					Snacks.picker.grep_word()
+				end
+			end,
+		},
+		{
+			"<leader>FW",
+			function()
+				local word = vim.fn.expand("<cWORD>")
+				if IsInGit() then
+					Snacks.picker.git_grep({ search = word })
+				else
+					Snacks.picker.grep_word()
+				end
+			end,
 		},
 	},
 }

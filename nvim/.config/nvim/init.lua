@@ -26,6 +26,7 @@ autocmd({ "BufWritePre" }, {
 })
 
 autocmd("BufWritePre", {
+	group = OrigamiGroup,
 	pattern = "*",
 	callback = function(args)
 		require("conform").format({
@@ -36,6 +37,7 @@ autocmd("BufWritePre", {
 })
 
 autocmd({ "BufRead", "FileType" }, {
+	group = OrigamiGroup,
 	desc = "Enable Treesitter",
 	callback = function(event)
 		local bufnr = event.buf
@@ -71,9 +73,10 @@ autocmd({ "BufRead", "FileType" }, {
 })
 
 autocmd("ColorScheme", {
+	group = OrigamiGroup,
 	pattern = "*",
 	callback = function()
-		-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
 		vim.api.nvim_set_hl(0, "NeoTreeStatusLine", { bg = "NONE", fg = "NONE" })
 		vim.api.nvim_set_hl(0, "NeoTreeStatusLineNC", { bg = "NONE", fg = "NONE" })
 	end,

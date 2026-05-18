@@ -21,6 +21,7 @@ return {
 			"rafamadriz/friendly-snippets",
 			"giuxtaposition/blink-cmp-copilot",
 		},
+		event = "InsertEnter",
 		version = "1.*",
 		--- @module 'blink.cmp'
 		--- @class blink.cmp.Source

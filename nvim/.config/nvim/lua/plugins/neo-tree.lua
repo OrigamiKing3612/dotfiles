@@ -1,7 +1,7 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
-	lazy = false,
+	cmd = "Neotree",
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 	},
@@ -23,8 +23,6 @@ return {
 			},
 		})
 
-		-- vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>")
-
 		local function on_move(data)
 			Snacks.rename.on_rename_file(data.source, data.destination)
 		end
@@ -43,6 +41,7 @@ return {
 			enable_git_status = true,
 			open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
 			filesystem = {
+				hijack_netrw_behavior = "disabled",
 				follow_current_file = {
 					enabled = true,
 					leave_dirs_open = false,
@@ -90,4 +89,10 @@ return {
 			},
 		}
 	end,
+	keys = {
+		{
+			"<C-n>",
+			"<cmd>Neotree toggle<cr>",
+		},
+	},
 }
